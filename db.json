@@ -1,12 +1,103 @@
 {
-  "cats": [
+  "menu": [
     {
       "id": 1,
-      "name": "Luke"
+      "name": ,
+      "image": ,
+      "description": ,
     },
     {
       "id": 2,
-      "name": "Leia"
+      "name": ,
+      "image": ,
+      "description": ,
+    }
+  ],
+  "friday_tables": [
+    {
+      "id": 1,
+      "seats": 4,
+      "1930_seating": true,
+      "2100_seating": true
+
+    },
+    {
+      "id": 2,
+      "seats": 4,
+      "1930_seating": false,
+      "2100_seating": true
+    },
+    {
+      "id": 3,
+      "seats": 4,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 4,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 5,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 6,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    }
+  ],
+  "saturday_tables": [
+    {
+      "id": 1,
+      "seats": 4,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 2,
+      "seats": 4,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 3,
+      "seats": 4,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 4,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 5,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    },
+    {
+      "id": 6,
+      "seats": 2,
+      "1930_seating": true,
+      "2100_seating": true
+    }
+  ],
+  "reservations": [
+    {
+      "id": 1,
+      "name": "Smith",
+      "phone_number": "555-555-0123",
+      "day": "friday",
+      "table": "2",
+      "time": "1930"
     }
   ]
 }
