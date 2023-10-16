@@ -97,7 +97,7 @@
       "phone_number": "555-555-0123",
       "day": "friday",
       "table": "2",
-      "time": "1930"
+      "time": "7:30"
     },
     {
       "id": 2,
@@ -105,7 +105,7 @@
       "phone_number": "555-555-2727",
       "day": "saturday",
       "table": "2",
-      "time": "2100"
+      "time": "9:00"
     },
     {
       "id": 3,
@@ -113,7 +113,7 @@
       "phone_number": "555-555-1800",
       "day": "friday",
       "table": "5",
-      "time": "1930"
+      "time": "7:30"
     }
   ]
 }
