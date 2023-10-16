@@ -1,6 +1,11 @@
-function MenuItem() {
+function MenuItem({ name, image, description }) {
     return (
-        <p>Sample Menu Item</p>
+        <div className="menu-item">
+            <img src={image} alt={name} />
+            <h3>{name}</h3>
+            <p>{description}</p>
+
+        </div>
     )
 }
 
