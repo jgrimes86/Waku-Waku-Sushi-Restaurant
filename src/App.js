@@ -1,11 +1,12 @@
 
-import ManageReservations from "./Components/ManageReservations";
+import Header from "./Components/Header";
+import Content from "./Components/Content";
 
 function App() {
     return (
         <div>
-            <h1>hello world</h1>
-            <ManageReservations />
+            <Header />
+            <Content />
         </div>
     );
 }
