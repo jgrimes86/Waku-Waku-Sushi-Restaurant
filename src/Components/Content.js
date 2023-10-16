@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react";
 import StaffPage from "./StaffPage";
+import Menu from "./Menu";
+import Reservation from "./Reservation";
+import Login from "./Login";
+
+import { useState, useEffect } from "react";
 
 function Content() {
     const [reservations, setReservations] = useState([]);
@@ -16,6 +21,10 @@ function Content() {
     return (
         <div>
             <StaffPage reservations={reservations} />
+            <Menu />
+            <Reservation />
+            <Login />
+            
         </div>
     )
 }
