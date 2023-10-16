@@ -2,15 +2,15 @@
   "menu": [
     {
       "id": 1,
-      "name": ,
-      "image": ,
-      "description": ,
+      "name": "Salmon Roll",
+      "image": "https://thewoodenskillet.com/wp-content/uploads/2023/02/best-spicy-salmon-roll-recipe-1.jpg",
+      "description": "Salmon and avocado."
     },
     {
       "id": 2,
-      "name": ,
-      "image": ,
-      "description": ,
+      "name": "Spicy Tuna Roll",
+      "image": "https://www.sushisushi.co.uk/cdn/shop/articles/JAPANESERECIPES6450_1112x.jpg?v=1653470086",
+      "description": "Spicy tuna topped with sesame and scallions."
     }
   ],
   "friday_tables": [
