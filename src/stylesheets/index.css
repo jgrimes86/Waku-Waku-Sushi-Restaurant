@@ -19,6 +19,12 @@
   width: 200px;
 }
 
+/* form */
+.reservation {
+  text-align: center;
+  margin: 0;
+}
+
 /* Manage Reservations */
 #manage-reservations h3{
   text-align: center;

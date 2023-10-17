@@ -17,7 +17,7 @@ function Content() {
     return (
         <div>
             <Menu />
-            <Reservation />
+            <Reservation reservations={reservations}/>
             <Login />
             <StaffPage reservations={reservations} />
         </div>
