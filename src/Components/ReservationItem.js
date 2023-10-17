@@ -6,8 +6,6 @@ function ReservationItem({res, clickOnReservation}) {
         clickOnReservation(res)
     }
 
-    console.log(res)
-
     return (
         <li className="reservationItem" onClick={handleClick} >
             <p>{name} ({phoneNumber})</p>
