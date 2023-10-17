@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 import ReservationList from "./ReservationList"
-import Tables from "./Tables";
+import TableChart from "./TableChart";
+
+const dayAndTimeStart = {
+    day: "",
+    time: ""
+}
 
 function StaffPage({reservations}) {
     const [resMessage, setResMessage] = useState("All Reservations:");
-    const [dayAndTime, setDayAndTime] = useState({
-        day: "",
-        time: ""
-    });
+    const [dayAndTime, setDayAndTime] = useState(dayAndTimeStart);
     const {day, time} = dayAndTime;
     const [filteredReservations, setFilteredReservations] = useState([]);
     const [selectedReservation, setSelectedReservation] = useState({})
@@ -22,7 +24,7 @@ function StaffPage({reservations}) {
             else if (res.time === time) return res
         })
         setFilteredReservations(filteredByTime)
-    }, [dayAndTime])
+    }, [reservations, dayAndTime])
 
     useEffect(() => {
         if (day && time) {
@@ -41,10 +43,19 @@ function StaffPage({reservations}) {
         });
     }
 
+    function clickOnReservation(reservation) {
+        setSelectedReservation(reservation)
+    }
+
+    console.log(selectedReservation)
+
     return (
-        <div>
-            <ReservationList reservations={filteredReservations} changeDayAndTime={changeDayAndTime} resMessage={resMessage} />
-            <Tables reservations={filteredReservations} dayAndTime={dayAndTime} />
+        <div id="manage-reservations">
+            <h3 >Manage Reservations</h3>
+            <div id="reservation-display">
+                <ReservationList reservations={filteredReservations} changeDayAndTime={changeDayAndTime} resMessage={resMessage} clickOnReservation={clickOnReservation} />
+                <TableChart reservations={filteredReservations} dayAndTime={dayAndTime} selectedReservation={selectedReservation} />
+            </div>
         </div>
     )
 }

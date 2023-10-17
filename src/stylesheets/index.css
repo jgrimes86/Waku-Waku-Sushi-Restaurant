@@ -19,7 +19,64 @@
   width: 200px;
 }
 
+/* Manage Reservations */
+#manage-reservations h3{
+  text-align: center;
+  border-bottom: 1px black solid;
+}
+
+#reservation-display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+#reservation-filter {
+  flex: 40%;
+  padding: 10px;
+}
+
+#reservation-filter div > label, select, h4, ul {
+    padding: 10px;
+  }
 
 
+#reservation-list {
+  list-style-type: none;
+}
 
+#reservation-list li {
+  padding: 5px;
+  margin-right: 25%;
+  border: 1px black solid;
+}
 
+#reserved-tables {
+  flex: 60%;
+}
+
+#reserved-tables h4 {
+  text-align: center;
+}
+
+#table-chart {
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+}
+
+#table {
+  padding: 10px;
+  border: 1px black solid;
+  margin: 10px;
+  text-align: center;
+}
+
+.reserved-table {
+  background-color: grey;
+}
+
+.selected-table {
+  background-color: yellow;
+}
