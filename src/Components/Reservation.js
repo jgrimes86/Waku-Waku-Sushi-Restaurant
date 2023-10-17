@@ -28,7 +28,6 @@ function Reservation({ reservations }) {
 
     console.log(rezFormData)
 
-
     return (
         <div className="reservation">
             <h2>Make A Reservation</h2>
@@ -37,9 +36,9 @@ function Reservation({ reservations }) {
                 <label htmlFor="date">Date  </label>
                 <select 
                     name="date" 
-                    // defaultValue={value: "-", label: "-"}
                     onChange={handleChange} 
                 >
+                    <option value="default" selected disabled hidden>----</option>
                     <option value="friday">Fri, Oct 20</option>
                     <option value="saturday">Sat, Oct 21</option>
                 </select>
@@ -50,6 +49,7 @@ function Reservation({ reservations }) {
                     name="time" 
                     onChange={handleChange} 
                 >
+                    <option value="default" selected disabled hidden>----</option>
                     <option value="7:30">7:30 pm</option>
                     <option value="9:00">9:00 pm</option>
                 </select>
@@ -60,6 +60,7 @@ function Reservation({ reservations }) {
                     name="guests" 
                     onChange={handleChange} 
                 > 
+                    <option value="default" selected disabled hidden>----</option>
                     <option value="2">2 people</option>
                     <option value="3">3 people</option>
                     <option value="4">4 people</option>
