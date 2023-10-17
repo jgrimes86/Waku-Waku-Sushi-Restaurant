@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { tab } from "@testing-library/user-event/dist/tab";
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 // import Input from "react-phone-input-2"
 // import PhoneInput from "react-phone-input-2"
@@ -18,16 +19,12 @@ function ReservationForm() {
     const {reservations, friRez, satRez} = useOutletContext();
     
     const [rezFormData, setRezFormData] = useState(initialState)    
-    // const [isDisabled, setIsDisabled] = useState(false)
+    const [is1930Open, setIs1930Open] = useState(false)
+    const [is2100Open, setIs2100Open] = useState(false)
+
+    const [filteredSlots, setFilteredSlots] = useState({})
 
     const {name, phoneNumber, guests, date, time} = rezFormData
-    const guest = 2;
-
-    const availableFri = friRez.filter((rez) => {
-        if (rez.seats >= guest) return rez;
-    })
-    
-    console.log(availableFri)
 
     function handleChange(event) {
         setRezFormData(currentData => {
@@ -36,14 +33,41 @@ function ReservationForm() {
                 [event.target.name]: event.target.value
             }
         })
-
-        // if (event.target.value !== "default") {
-        //     setIsDisabled(true)
-        // }
     }
 
-    // disabled={isDisabled} hidden={isDisabled}
-    // console.log(rezFormData)
+     useEffect(() => {
+        let day = rezFormData.date
+        let db = day === "friday" ? friRez : satRez;
+
+        console.log(db)
+        
+        const filterByGuests = db.filter(res => {
+            if (rezFormData.guests <= res.seats) return res;
+        })
+
+        const filterByTable = filterByGuests.filter(res => {
+            if (res["1930-seating"]) {
+                setIs1930Open(true)
+                return res
+            }   else { 
+                setIs2100Open(true)
+                return res
+            }
+        })
+        
+        console.log(filterByTable)
+        setFilteredSlots(filterByTable)
+    }, [rezFormData])
+
+    console.log(filteredSlots)
+    const btn1930 = is1930Open ? 
+        <button>7:30PM</button> 
+        : 
+        null
+    const btn2100 = is2100Open ? 
+        <button>9:00PM</button> 
+        : 
+        null
 
     return (
         <div className="reservation">
@@ -60,18 +84,6 @@ function ReservationForm() {
                     <option value="friday">Fri, Oct 20</option>
                     <option value="saturday">Sat, Oct 21</option>
                 </select>
-
-                {/* time */}
-                {/* <label htmlFor="date">Time </label>
-                <select 
-                    name="time" 
-                    defaultValue="default"
-                    onChange={handleChange} 
-                >
-                    <option value="default" disabled hidden>-----</option>
-                    <option value="7:30">7:30 pm</option>
-                    <option value="9:00">9:00 pm</option>
-                </select> */}
 
                 {/* guests */}
                 <label htmlFor="guests">Number of Guests  </label>
@@ -108,7 +120,10 @@ function ReservationForm() {
                     required
                 />
             </form>
-
+            {/* {is1930Btn}
+            {is2100Btn} */}
+            {btn1930}
+            {btn2100}
             <button type="submit">Make A Reservation</button>
         </div>
     )
