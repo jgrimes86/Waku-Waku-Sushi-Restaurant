@@ -37,6 +37,7 @@ function Reservation({ reservations }) {
                 <label htmlFor="date">Date  </label>
                 <select 
                     name="date" 
+                    // defaultValue={value: "-", label: "-"}
                     onChange={handleChange} 
                 >
                     <option value="friday">Fri, Oct 20</option>
