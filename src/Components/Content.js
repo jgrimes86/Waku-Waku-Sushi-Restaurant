@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import StaffPage from "./StaffPage";
 import Menu from "./Menu";
-import Reservation from "./Reservation";
+import ReservationForm from "./ReservationForm";
 import Login from "./Login";
 
 function Content() {
@@ -17,7 +17,7 @@ function Content() {
     return (
         <div>
             <Menu />
-            <Reservation reservations={reservations}/>
+            <ReservationForm reservations={reservations}/>
             <Login />
             <StaffPage reservations={reservations} />
         </div>
