@@ -2,9 +2,10 @@ import ReservationItem from "./ReservationItem"
 
 function ReservationList({reservations, changeDayAndTime, resMessage, clickOnReservation}) {
 
-    const reservationList = reservations.map(res => (
-        <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} />
-    ))
+    const reservationList = reservations.map(res => {
+        // console.log(res);
+        return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} />;
+})
 
     function handleChange(event) {
         changeDayAndTime(event.target.name, event.target.value)

@@ -17,7 +17,7 @@ function StaffPage({reservations}) {
     useEffect(() => {
         const filteredByDay = reservations.filter(res => {
             if (day === "") return res
-            else if (res.day === day.toLowerCase()) return res
+            else if (res.date === day.toLowerCase()) return res
         }) 
         const filteredByTime = filteredByDay.filter(res => {
             if (time === "") return res
@@ -46,8 +46,6 @@ function StaffPage({reservations}) {
     function clickOnReservation(reservation) {
         setSelectedReservation(reservation)
     }
-
-    console.log(selectedReservation)
 
     return (
         <div id="manage-reservations">

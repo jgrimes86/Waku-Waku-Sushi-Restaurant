@@ -1,15 +1,17 @@
 
 function ReservationItem({res, clickOnReservation}) {
-    const {name, phone_number, day, time, table} = res;
+    const {name, phoneNumber, date, time, table} = res;
 
     function handleClick() {
         clickOnReservation(res)
     }
 
+    console.log(res)
+
     return (
         <li className="reservationItem" onClick={handleClick} >
-            <p>{name} ({phone_number})</p>
-            <p>Day and time: {day}, {time}</p>
+            <p>{name} ({phoneNumber})</p>
+            <p>Day and time: {date}, {time}</p>
             {/* <p>Table: {table}</p> */}
         </li>
     )
