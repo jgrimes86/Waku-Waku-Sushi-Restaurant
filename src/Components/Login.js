@@ -8,7 +8,7 @@ function Login() {
         setPassword(event.target.value)
     }
 
-    console.log(password)
+    // console.log(password)
     
     function onLogin() {
         if (password === "waku123") {

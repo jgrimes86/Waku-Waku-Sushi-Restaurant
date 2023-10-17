@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 // import Input from "react-phone-input-2"
 // import PhoneInput from "react-phone-input-2"
 // import "react-phone-input-2/lib/style.css"
@@ -12,7 +13,8 @@ const initialState = {
     table: ""
 }
 
-function Reservation({ reservations }) {
+function Reservation() {
+    const {reservations} = useOutletContext();
 
     const [rezFormData, setRezFormData] = useState(initialState)
     const {name, phoneNumber, guests, date, time} = rezFormData

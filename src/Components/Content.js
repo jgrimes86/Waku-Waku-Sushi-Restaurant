@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import StaffPage from "./StaffPage";
 import Menu from "./Menu";
 import Reservation from "./Reservation";
@@ -14,12 +15,15 @@ function Content() {
         .then(setReservations)
     }, [])
 
+    const context = {reservations}
+
     return (
         <div>
-            <Menu />
+            <Outlet context={context} />
+            {/* <Menu />
             <Reservation reservations={reservations}/>
-            <Login />
-            <StaffPage reservations={reservations} />
+            <Login /> */}
+            {/* <StaffPage reservations={reservations} /> */}
         </div>
     )
 }
