@@ -10,7 +10,43 @@
       "id": 2,
       "name": "Spicy Tuna Roll",
       "image": "https://www.sushisushi.co.uk/cdn/shop/articles/JAPANESERECIPES6450_1112x.jpg?v=1653470086",
-      "description": "Spicy tuna topped with sesame and scallions."
+      "description": "Spicy tuna topped with sesame seeds and scallions."
+    },
+    {
+      "id": 3,
+      "name": "California Roll",
+      "image": "https://www.sushisushi.co.uk/cdn/shop/articles/JAPANESERECIPES6474_1112x.jpg?v=1612466978",
+      "description": "Crab, cucumber, and avocado with sesame seeds and roe."
+    },
+    {
+      "id": 4,
+      "name": "Dragon Roll",
+      "image": "https://www.sushisushi.co.uk/cdn/shop/articles/Dragon_Rolls_1112x.jpg?v=1627390703",
+      "description": "Eel (unagi), shrimp, and tempura with avocado."
+    },
+    {
+      "id": 5,
+      "name": "Red Snapper Sushi",
+      "image": "https://sushihanatulsa.com/wp-content/uploads/2020/08/SN-red-snapper-nigiri.jpg",
+      "description": "Red snapper over white rice."
+    },
+    {
+      "id": 6,
+      "name": "Tuna Sushi",
+      "image": "https://sushihanatulsa.com/wp-content/uploads/2020/08/SN-tuna-nigiri.jpg",
+      "description": "Tuna over white rice."
+    },
+    {
+      "id": 7,
+      "name": "Eel (Unagi) Sushi",
+      "image": "https://sushihanatulsa.com/wp-content/uploads/2020/08/SN-Eel-Nigiri-scaled.jpg",
+      "description": "Freshwater eel over white rice."
+    },
+    {
+      "id": 8,
+      "name": "Smoked Salmon Sushi",
+      "image": "https://sushihanatulsa.com/wp-content/uploads/2020/08/SN-smoked-salmon.jpg",
+      "description": "Smoked salmon over white rice."
     }
   ],
   "friday_tables": [

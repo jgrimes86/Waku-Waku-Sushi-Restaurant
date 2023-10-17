@@ -16,6 +16,7 @@ function StaffPage() {
     const [filteredReservations, setFilteredReservations] = useState([]);
     const [selectedReservation, setSelectedReservation] = useState({})
 
+    // Filter reservations if day and time have been selected
     useEffect(() => {
         const filteredByDay = reservations.filter(res => {
             if (day === "") return res
@@ -28,6 +29,7 @@ function StaffPage() {
         setFilteredReservations(filteredByTime)
     }, [reservations, dayAndTime])
 
+    // Change text above reservation list based on day and time selected
     useEffect(() => {
         if (day && time) {
             setResMessage(`Reservations for ${day} at ${time}:`)
