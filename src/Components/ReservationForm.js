@@ -15,16 +15,14 @@ const initialState = {
 }
 
 function ReservationForm() {
+    const {reservations, friRez, satRez, onNewRez} = useOutletContext();
     
-    const {reservations, friRez, satRez} = useOutletContext();
-    
-    const [rezFormData, setRezFormData] = useState(initialState)    
+    const [rezFormData, setRezFormData] = useState(initialState)  
+    const {name, phoneNumber, guests, date, time} = rezFormData
+
     const [is1930Open, setIs1930Open] = useState(false)
     const [is2100Open, setIs2100Open] = useState(false)
-
     const [filteredSlots, setFilteredSlots] = useState({})
-
-    const {name, phoneNumber, guests, date, time} = rezFormData
 
     function handleChange(event) {
         setRezFormData(currentData => {
@@ -35,11 +33,35 @@ function ReservationForm() {
         })
     }
 
-     useEffect(() => {
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        // add new res to db
+        fetch("http://localhost:3001/reservations", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(rezFormData)
+        })
+            .then(r => {
+                if (r.ok) {
+                    return r.json()
+                } else {
+                    throw Error("New reservation not made")
+                }
+            })
+            .then(rez => {
+                onNewRez(rez)
+                setRezFormData(initialState)
+            })
+
+        // update table in db
+    }
+
+    useEffect(() => {
         let day = rezFormData.date
         let db = day === "friday" ? friRez : satRez;
-
-        console.log(db)
         
         const filterByGuests = db.filter(res => {
             if (rezFormData.guests <= res.seats) return res;
@@ -54,20 +76,13 @@ function ReservationForm() {
                 return res
             }
         })
-        
-        console.log(filterByTable)
         setFilteredSlots(filterByTable)
     }, [rezFormData])
 
-    console.log(filteredSlots)
     const btn1930 = is1930Open ? 
-        <button>7:30PM</button> 
-        : 
-        null
+        <button onClick={handleChange} type="button" name="time" value="7:30">7:30PM</button> : null
     const btn2100 = is2100Open ? 
-        <button>9:00PM</button> 
-        : 
-        null
+        <button onClick={handleChange} type="button" name="time" value="9:00">9:00PM</button> : null
 
     return (
         <div className="reservation">
@@ -119,12 +134,10 @@ function ReservationForm() {
                     onChange={handleChange}
                     required
                 />
+                {btn1930}
+                {btn2100}
             </form>
-            {/* {is1930Btn}
-            {is2100Btn} */}
-            {btn1930}
-            {btn2100}
-            <button type="submit">Make A Reservation</button>
+            <button onClick={handleSubmit} type="submit">Make A Reservation</button>
         </div>
     )
 }
