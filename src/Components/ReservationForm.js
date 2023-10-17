@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 // import Input from "react-phone-input-2"
 // import PhoneInput from "react-phone-input-2"
 // import "react-phone-input-2/lib/style.css"
@@ -12,7 +13,9 @@ const initialState = {
     table: ""
 }
 
-function ReservationForm({ reservations, friRez, satRez }) {
+function ReservationForm() {
+    
+    const {reservations, friRez, satRez} = useOutletContext();
     
     const [rezFormData, setRezFormData] = useState(initialState)    
     // const [isDisabled, setIsDisabled] = useState(false)

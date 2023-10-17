@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import StaffPage from "./StaffPage";
 import Menu from "./Menu";
 import ReservationForm from "./ReservationForm";
@@ -8,7 +9,6 @@ function Content() {
     const [reservations, setReservations] = useState([]);
     const [friRez, setFriRez] = useState([])
     const [satRez, setSatRez] = useState ([])
-
 
     const databaseURL = "http://localhost:3001"
 
@@ -26,16 +26,15 @@ function Content() {
         .then(setSatRez)
     }, [])
 
+    const context = {reservations, friRez, satRez}
+
     return (
         <div>
-            <Menu />
-            <ReservationForm 
-                reservations={reservations}
-                friRez={friRez}
-                satRez={satRez}
-            />
-            <Login />
-            <StaffPage reservations={reservations} />
+            <Outlet context={context} />
+            {/* <Menu />
+            <Reservation reservations={reservations}/>
+            <Login /> */}
+            {/* <StaffPage reservations={reservations} /> */}
         </div>
     )
 }

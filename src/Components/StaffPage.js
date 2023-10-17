@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import ReservationList from "./ReservationList"
 import TableChart from "./TableChart";
 
@@ -7,7 +8,8 @@ const dayAndTimeStart = {
     time: ""
 }
 
-function StaffPage({reservations}) {
+function StaffPage() {
+    const {reservations} = useOutletContext();
     const [resMessage, setResMessage] = useState("All Reservations:");
     const [dayAndTime, setDayAndTime] = useState(dayAndTimeStart);
     const {day, time} = dayAndTime;
