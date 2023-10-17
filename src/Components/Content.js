@@ -20,9 +20,9 @@ function Content() {
     return (
         <div>
             <Menu />
-            <Reservation />
+            <Reservation reservations={reservations}/>
             <Login />
-            
+
             <ManageReservations reservations={reservations} />
         </div>
     )

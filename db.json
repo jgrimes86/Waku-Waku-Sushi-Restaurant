@@ -17,104 +17,104 @@
     {
       "id": 1,
       "seats": 4,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
 
     },
     {
       "id": 2,
       "seats": 4,
-      "1930_seating": false,
-      "2100_seating": true
+      "1930-seating": false,
+      "2100-seating": true
     },
     {
       "id": 3,
       "seats": 4,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 4,
       "seats": 2,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 5,
       "seats": 2,
-      "1930_seating": false,
-      "2100_seating": true
+      "1930-seating": false,
+      "2100-seating": true
     },
     {
       "id": 6,
       "seats": 2,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     }
   ],
   "saturday_tables": [
     {
       "id": 1,
       "seats": 4,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 2,
       "seats": 4,
-      "1930_seating": true,
-      "2100_seating": false
+      "1930-seating": true,
+      "2100-seating": false
     },
     {
       "id": 3,
       "seats": 4,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 4,
       "seats": 2,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 5,
       "seats": 2,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     },
     {
       "id": 6,
       "seats": 2,
-      "1930_seating": true,
-      "2100_seating": true
+      "1930-seating": true,
+      "2100-seating": true
     }
   ],
   "reservations": [
     {
       "id": 1,
       "name": "Smith",
-      "phone_number": "555-555-0123",
+      "phoneNumber": "555-555-0123",
       "guests": "3",
-      "day": "friday",
+      "date": "friday",
       "time": "7:30",
       "table": "2"
     },
     {
       "id": 2,
       "name": "Churchill",
-      "phone_number": "555-555-2727",
+      "phoneNumber": "555-555-2727",
       "guests": "4",
-      "day": "saturday",
+      "date": "saturday",
       "time": "9:00",
       "table": "2"
     },
     {
       "id": 3,
       "name": "Rodriguez",
-      "phone_number": "555-555-1800",
+      "phoneNumber": "555-555-1800",
       "guests": "2",
-      "day": "friday",
+      "date": "friday",
       "time": "7:30",
       "table": "5"
     }
