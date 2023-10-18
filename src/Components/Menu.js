@@ -23,10 +23,12 @@ function Menu() {
     ))
 
     return (
-        <div className="menu">
+        <>
             <h2>Menu</h2>
-            {renderMenuItems}
-        </div>
+            <div className="menu">
+                {renderMenuItems}
+            </div>
+        </>
     )
 }
 
