@@ -9,13 +9,13 @@ const dayAndTimeStart = {
 }
 
 function StaffPage() {
-    const {reservations} = useOutletContext();
+    const {reservations, handleChangeReservation} = useOutletContext();
     const [resMessage, setResMessage] = useState("All Reservations:");
     const [dayAndTime, setDayAndTime] = useState(dayAndTimeStart);
     const {day, time} = dayAndTime;
     const [filteredReservations, setFilteredReservations] = useState([]);
     const [selectedReservation, setSelectedReservation] = useState({})
-
+    
     // Filter reservations if day and time have been selected
     useEffect(() => {
         const filteredByDay = reservations.filter(res => {
@@ -51,11 +51,13 @@ function StaffPage() {
         setSelectedReservation(reservation)
     }
 
+    // console.log(selectedReservation)
+
     return (
         <div id="manage-reservations">
             <h3 >Manage Reservations</h3>
             <div id="reservation-display">
-                <ReservationList reservations={filteredReservations} changeDayAndTime={changeDayAndTime} resMessage={resMessage} clickOnReservation={clickOnReservation} />
+                <ReservationList reservations={filteredReservations} changeDayAndTime={changeDayAndTime} resMessage={resMessage} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} handleChangeReservation={handleChangeReservation} />
                 <TableChart reservations={filteredReservations} dayAndTime={dayAndTime} selectedReservation={selectedReservation} />
             </div>
         </div>

@@ -26,6 +26,14 @@ function Content() {
         .then(setSatRez)
     }, [])
 
+    function handleChangeReservation(changedReservation) {
+        setReservations(reservations => reservations.map(res => {
+            if (res.id === changedReservation.id) {
+                return changedReservation
+            } else return res
+        }))
+    }
+
     const context = {
         reservations, 
         friRez, 
@@ -34,7 +42,8 @@ function Content() {
         setFriRez,
         setSatRez,
         onFriTableUpdate,
-        onSatTableUpdate
+        onSatTableUpdate,
+        handleChangeReservation
     }
 
     function onNewRez(newRez) {
