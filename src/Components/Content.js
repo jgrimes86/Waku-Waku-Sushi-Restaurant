@@ -32,13 +32,34 @@ function Content() {
         satRez, 
         onNewRez, 
         setFriRez,
-        setSatRez
+        setSatRez,
+        onFriTableUpdate,
+        onSatTableUpdate
     }
 
     function onNewRez(newRez) {
         setReservations(newRez)
     }
 
+    function onFriTableUpdate(updatedTable) {
+        setFriRez(currentTables => currentTables.map(table => {
+            if (table.id === updatedTable.id) {
+                return updatedTable;
+            } else {
+                return table
+            }
+        }))
+    }
+
+    function onSatTableUpdate(updatedTable) {
+        setSatRez(currentTables => currentTables.map(table => {
+            if (table.id === updatedTable.id) {
+                return updatedTable;
+            } else {
+                return table
+            }
+        }))
+    }
     // console.log("satRez" , satRez)
 
     // console.log(reservations)

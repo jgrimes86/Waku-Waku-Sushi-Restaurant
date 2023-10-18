@@ -15,7 +15,13 @@ const initialState = {
 }
 
 function ReservationForm() {
-    const {reservations, friRez, satRez, onNewRez, setFriRez, setSatRez} = useOutletContext();
+    const {
+        friRez, 
+        satRez, 
+        onNewRez, 
+        onFriTableUpdate,
+        onSatTableUpdate
+    } = useOutletContext();
     
     const [rezFormData, setRezFormData] = useState(initialState)  
     const {name, phoneNumber, guests, date, time} = rezFormData
@@ -63,7 +69,7 @@ function ReservationForm() {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({[time]: false})
-        })
+        })      
              .then(r => {
                 if (r.ok) {
                     return r.json()
@@ -72,11 +78,11 @@ function ReservationForm() {
                 }
             })
             .then(rez => {
-                    console.log(rez)
-                }      
-            )
-            
-        
+                    if (day === "friday") {
+                        onFriTableUpdate(rez)
+                    } else if (day === "saturday")
+                        onSatTableUpdate(rez)
+            })
         
         // add new res to db
         fetch("http://localhost:3001/reservations", {
@@ -88,7 +94,6 @@ function ReservationForm() {
                 ...rezFormData,
                 "table": tableId
             })
-
         })
             .then(r => {
                 if (r.ok) {
@@ -100,8 +105,6 @@ function ReservationForm() {
             .then(rez => {
                 onNewRez(rez)
                 setRezFormData(initialState)
-                // setIs1930Open(false)
-                // setIs2100Open(false)
             })
         setRezFormData(initialState)
         setFilteredSlots("")

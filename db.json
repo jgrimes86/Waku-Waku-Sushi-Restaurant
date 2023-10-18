@@ -92,7 +92,7 @@
       "id": 1,
       "seats": 4,
       "1930-seating": true,
-      "2100-seating": false
+      "2100-seating": true
     },
     {
       "id": 2,
@@ -104,7 +104,7 @@
       "id": 3,
       "seats": 4,
       "1930-seating": true,
-      "2100-seating": false
+      "2100-seating": true
     },
     {
       "id": 4,
@@ -152,33 +152,6 @@
       "date": "friday",
       "time": "7:30",
       "table": "5"
-    },
-    {
-      "name": "jim",
-      "phoneNumber": "6666666666",
-      "guests": "4",
-      "date": "saturday",
-      "time": "9:00",
-      "table": 1,
-      "id": 4
-    },
-    {
-      "name": "ling",
-      "phoneNumber": "2222222222",
-      "guests": "4",
-      "date": "saturday",
-      "time": "9:00",
-      "table": 1,
-      "id": 5
-    },
-    {
-      "name": "test",
-      "phoneNumber": "4444444444",
-      "guests": "4",
-      "date": "saturday",
-      "time": "9:00",
-      "table": 3,
-      "id": 6
     }
   ]
 }
