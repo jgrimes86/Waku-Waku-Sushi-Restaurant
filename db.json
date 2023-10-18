@@ -109,7 +109,7 @@
     {
       "id": 4,
       "seats": 2,
-      "1930-seating": true,
+      "1930-seating": false,
       "2100-seating": true
     },
     {
@@ -206,6 +206,24 @@
       "time": "7:30",
       "table": 3,
       "id": 9
+    },
+    {
+      "name": "ling",
+      "phoneNumber": "1111111111",
+      "guests": "2",
+      "date": "friday",
+      "time": "7:30",
+      "table": 4,
+      "id": 10
+    },
+    {
+      "name": "dan",
+      "phoneNumber": "7089539013",
+      "guests": "2",
+      "date": "saturday",
+      "time": "7:30",
+      "table": 4,
+      "id": 11
     }
   ]
 }

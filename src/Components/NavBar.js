@@ -33,12 +33,6 @@ function NavBar() {
             >
                 Login
             </NavLink>
-            <NavLink
-                to="/staff"
-                className={linkClass}
-            >
-                StaffPage
-            </NavLink>
             <NavLink 
                 to="/contact"
                 className={linkClass}
