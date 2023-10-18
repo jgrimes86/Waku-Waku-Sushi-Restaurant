@@ -92,7 +92,7 @@
       "id": 1,
       "seats": 4,
       "1930-seating": true,
-      "2100-seating": false
+      "2100-seating": true
     },
     {
       "id": 2,
