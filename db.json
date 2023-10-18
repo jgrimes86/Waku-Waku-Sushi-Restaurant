@@ -92,7 +92,7 @@
       "id": 1,
       "seats": 4,
       "1930-seating": true,
-      "2100-seating": true
+      "2100-seating": false
     },
     {
       "id": 2,
@@ -136,11 +136,11 @@
       "time": "9:00"
     },
     {
-      "date": "saturday",
-      "guests": "4",
       "id": 2,
       "name": "Churchill",
       "phoneNumber": "555-555-2727",
+      "guests": "4",
+      "date": "saturday",
       "table": "1",
       "time": "9:00"
     },

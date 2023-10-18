@@ -16,8 +16,6 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
     const [editResForm, setEditResForm] = useState(defaultResForm)
 
     const {friRez, satRez, setFriRez, setSatRez} = useOutletContext()
-
-    // console.log("reservation form: ", editResForm)
     
     function handleClick() {
         clickOnReservation(res)
@@ -32,7 +30,6 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
 
     function handleSubmit(event) {
         event.preventDefault();
-        // console.log("clicked")
         let changedReservation = {...editResForm}
         for (let key in changedReservation) {
             if (!changedReservation[key]) {
@@ -89,40 +86,67 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
         .then(updatedRes => handleChangeReservation(updatedRes))
     }
 
-    // console.log("friday tables: ", friRez)
-    // console.log("saturday tables: ", satRez)
+    function clearFormContent() {
+        setEditResForm(defaultResForm)
+    }
 
 
 
     const reservationChange = () => {
         return (
-            <form onSubmit={handleSubmit}>
-                <p>{name}</p>
+            <form id="res-edit" onSubmit={handleSubmit}>
                 <label htmlFor="phoneNumber">Phone Number: </label>
-                <input name="phoneNumber" type="text" value={editResForm.phoneNumber} onChange={handleChange}/>
+                <input 
+                    name="phoneNumber" 
+                    type="text" 
+                    value={editResForm.phoneNumber} 
+                    onChange={handleChange}
+                />
+                <br/>
                 <label htmlFor="date">Day: </label>
-                <select className="dropdown" name="date" value={editResForm.date} onChange={handleChange}>
+                <select 
+                    className="dropdown" 
+                    name="date" 
+                    value={editResForm.date} 
+                    onChange={handleChange}
+                >
                     <option value=""></option>
                     <option value="friday">Friday</option>
                     <option value="saturday">Saturday</option>
                 </select>
                 <br />
                 <label htmlFor="time">Time: </label>
-                <select className="dropdown" name="time" value={editResForm.time} onChange={handleChange}>
+                <select 
+                    className="dropdown" 
+                    name="time" 
+                    value={editResForm.time} 
+                    onChange={handleChange}
+                >
                     <option value=""></option>
                     <option value="7:30">7:30</option>
                     <option value="9:00">9:00</option>
                 </select>
                 <br />
                 <label htmlFor="guests">Guests: </label>
-                <select className="dropdown" name="guests" value={editResForm.guests} onChange={handleChange}>
+                <select 
+                    className="dropdown" 
+                    name="guests" 
+                    value={editResForm.guests} 
+                    onChange={handleChange}
+                >
                     <option value=""></option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                 </select>
+                <br/>
                 <label htmlFor="table">Table: </label>
-                <select className="dropdown" name="table" value={editResForm.table} onChange={handleChange}>
+                <select 
+                    className="dropdown" 
+                    name="table" 
+                    value={editResForm.table} 
+                    onChange={handleChange}
+                >
                     <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -133,8 +157,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
                 </select>
                 <br/>
                 <input type="submit" value="Change Reservation" />
-                <br/>
-                {/* <button >Clear Changes</button> */}
+                <button onClick={clearFormContent}>Clear Changes</button>
             </form>
         )
     }
@@ -145,6 +168,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
                 <p>{name} ({phoneNumber})</p>
                 <p>Day and time: {date}, {time}</p>
                 <p>Number of Guests: {guests}</p>
+                <p>Table: {table}</p>
             </div>
             {(selectedReservation.id === id) ? reservationChange() : null}
         </li>
