@@ -26,11 +26,20 @@ function Content() {
         .then(setSatRez)
     }, [])
 
-    const context = {reservations, friRez, satRez, onNewRez}
+    const context = {
+        reservations, 
+        friRez, 
+        satRez, 
+        onNewRez, 
+        setFriRez,
+        setSatRez
+    }
 
     function onNewRez(newRez) {
         setReservations(newRez)
     }
+
+    console.log("satRez" , satRez)
 
     // console.log(reservations)
 

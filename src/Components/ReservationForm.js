@@ -15,7 +15,7 @@ const initialState = {
 }
 
 function ReservationForm() {
-    const {reservations, friRez, satRez, onNewRez} = useOutletContext();
+    const {reservations, friRez, satRez, onNewRez, setFriRez, setSatRez} = useOutletContext();
     
     const [rezFormData, setRezFormData] = useState(initialState)  
     const {name, phoneNumber, guests, date, time} = rezFormData
@@ -24,6 +24,11 @@ function ReservationForm() {
     const [is2100Open, setIs2100Open] = useState(false)
     const [filteredSlots, setFilteredSlots] = useState({})
 
+    let btn1930 = is1930Open ? 
+        <button onClick={handleChange} type="button" name="time" value="7:30">7:30PM</button> : null
+    let btn2100 = is2100Open  ? 
+        <button onClick={handleChange} type="button" name="time" value="9:00">9:00PM</button> : null
+
     function handleChange(event) {
         setRezFormData(currentData => {
             return {
@@ -31,23 +36,29 @@ function ReservationForm() {
                 [event.target.name]: event.target.value
             }
         })
-    }
 
-    // console.log(rezFormData)
+        setIs1930Open(false)
+        setIs2100Open(false)
+    }
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        let db = rezFormData.date === "friday" ? friRez : satRez;
+        let day = rezFormData.date 
         let time = rezFormData.time === "7:30" ? "1930-seating" : "2100-seating";
-
-        const tableOpen = db.find((table) => {
-            if(rezFormData.guests <= table.seats && time) return table
+        
+        // it's not picking out a free table right now
+        // maybe we can filter free tables first in another fn?
+        const tableOpen = filteredSlots.find((table) => {
+            return (table[time] = true)
         })
 
         const tableId = tableOpen.id
 
-        // update (patch) rez-table to false
+        console.log("Tableopen", tableOpen)
+        console.log("Table: ", tableId)
+
+        // // update (patch) rez-table to false
         fetch(`http://localhost:3001/${rezFormData.date}_tables/${tableId}`, {
             method: "PATCH",
             headers: {
@@ -55,60 +66,102 @@ function ReservationForm() {
             },
             body: JSON.stringify({[time]: false})
         })
-        
-        // // add new res to db
-        fetch("http://localhost:3001/reservations", {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                ...rezFormData,
-                "table": tableId
-            })
-
-        })
-            .then(r => {
+             .then(r => {
                 if (r.ok) {
                     return r.json()
                 } else {
-                    throw Error("New reservation not made")
+                    throw Error("reservation table not set")
                 }
             })
             .then(rez => {
-                onNewRez(rez)
-                setRezFormData(initialState)
-                // setIs1930Open(false)
-                // setIs2100Open(false)
-            })
+                    console.log(rez)
+                }      
+            )
+            
+        
+        
+        // // // add new res to db
+        // fetch("http://localhost:3001/reservations", {
+        //     method: "POST", 
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         ...rezFormData,
+        //         "table": tableId
+        //     })
+
+        // })
+        //     .then(r => {
+        //         if (r.ok) {
+        //             return r.json()
+        //         } else {
+        //             throw Error("New reservation not made")
+        //         }
+        //     })
+        //     .then(rez => {
+        //         onNewRez(rez)
+        //         setRezFormData(initialState)
+        //         // setIs1930Open(false)
+        //         // setIs2100Open(false)
+        //     })
+        setRezFormData(initialState)
+        setFilteredSlots("")
+        setIs1930Open(false)
+        setIs2100Open(false)
+    }
+
+    function updateOpenTable(db) {
+        let filtered = db.filter((res) => {
+            if (res["1930-seating"] || res["2100-seating"]) {
+                if (res["1930-seating"]) {
+                    setIs1930Open(true) 
+                } 
+                if (res["2100-seating"]){ 
+                    setIs2100Open(true)
+                }
+                return res
+            } 
+            else {
+                console.log(`table ${res.id} is unavailable`)
+            }
+        })
+        setFilteredSlots(filtered)
     }
 
     useEffect(() => {
- 
         let day = rezFormData.date
-        let db = day === "friday" ? friRez : satRez;
-        
-        const filterByGuests = db.filter(res => {
-            if (rezFormData.guests <= res.seats) return res;
-        })
+        let guest = rezFormData.guests
 
-        const filterByTable = filterByGuests.filter(res => {
-            if (res["1930-seating"]) {
-                setIs1930Open(true)
-                return res
-            }   else { 
-                setIs2100Open(true)
-                return res
-            }
-        })
+        if (day && guest) {
+            let db = day === "friday" ? friRez : satRez;
+
+            const filterbyGuestAmt = db.filter((res) => {
+                if (guest <= res.seats) return res
+            })
+
+            updateOpenTable(filterbyGuestAmt)
+
+        } else if (day || guest) {
+            let db
+
+            if (day) {
+                if (day === "friday") {
+                    db = friRez
+                } else {
+                    db = satRez
+                }
+
+                updateOpenTable(db)
+            } 
+        }
         
-        setFilteredSlots(filterByTable)
     }, [rezFormData])
 
-    const btn1930 = (is1930Open && rezFormData.date && rezFormData.guests) ? 
-        <button onClick={handleChange} type="button" name="time" value="7:30">7:30PM</button> : null
-    const btn2100 = (is2100Open && rezFormData.date && rezFormData.guests) ? 
-        <button onClick={handleChange} type="button" name="time" value="9:00">9:00PM</button> : null
+    console.log("730pm", is1930Open)
+    console.log("9pm", is2100Open)
+    console.log("filteredSlots", filteredSlots)
+    console.log("rezFormData", rezFormData)
 
     return (
         <div className="reservation">
@@ -122,7 +175,7 @@ function ReservationForm() {
                     onChange={handleChange}
                     value={rezFormData.date} 
                 >
-                    <option value="" >-----</option>
+                    <option value="" disabled>-----</option>
                     <option value="friday">Fri, Oct 20</option>
                     <option value="saturday">Sat, Oct 21</option>
                 </select>
@@ -135,7 +188,7 @@ function ReservationForm() {
                     value={rezFormData.guests}
                     onChange={handleChange} 
                 > 
-                    <option value="" >-----</option>
+                    <option value="" disabled>-----</option>
                     <option value="2">2 people</option>
                     <option value="3">3 people</option>
                     <option value="4">4 people</option>
