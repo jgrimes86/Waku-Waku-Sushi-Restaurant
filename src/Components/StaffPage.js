@@ -41,7 +41,7 @@ function StaffPage() {
 
     return (
         <div id="manage-reservations">
-            <h3 >Manage Reservations</h3>
+            <h2 >Manage Reservations</h2>
             <div id="reservation-display">
                 <ReservationList reservations={reservations} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} handleChangeReservation={handleChangeReservation} />
                 <TableChart reservations={filteredReservations} dayAndTime={dayAndTime} selectedReservation={selectedReservation} changeDayAndTime={changeDayAndTime} />

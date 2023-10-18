@@ -2,6 +2,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-family: 'Architects Daughter', cursive;
+  text-align: center;
+  padding: 15px;
 }
 
 /* header */
@@ -14,11 +21,13 @@
 .menu {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .menu-item {
   width: 300px;
-  margin: 1rem;
+  margin-bottom: 1rem;
+  text-align: center;
 }
 
 .menu-item img {
@@ -32,7 +41,29 @@
   margin: 0;
 }
 
+/* Contact Us */
+
+.contact div {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+/* Login */
+.login {
+  text-align: center;
+  padding: 15px;
+}
+
+.login form, button {
+  padding-bottom: 5px;
+}
+
 /* Staff Page */
+#manage-reservations {
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
 #manage-reservations h3{
   text-align: center;
   border-bottom: 1px black solid;
