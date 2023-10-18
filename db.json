@@ -17,8 +17,8 @@
     {
       "id": 1,
       "seats": 4,
-      "1930-seating": true,
-      "2100-seating": true
+      "1930-seating": false,
+      "2100-seating": false
     },
     {
       "id": 2,
@@ -55,7 +55,7 @@
     {
       "id": 1,
       "seats": 4,
-      "1930-seating": true,
+      "1930-seating": false,
       "2100-seating": true
     },
     {

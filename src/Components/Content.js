@@ -32,7 +32,7 @@ function Content() {
         setReservations(newRez)
     }
 
-    console.log(reservations)
+    // console.log(reservations)
 
     return (
         <div>

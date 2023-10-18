@@ -33,16 +33,40 @@ function ReservationForm() {
         })
     }
 
+    // console.log(rezFormData)
+
     function handleSubmit(event) {
         event.preventDefault();
 
-        // add new res to db
+        let db = rezFormData.date === "friday" ? friRez : satRez;
+        let time = rezFormData.time === "7:30" ? "1930-seating" : "2100-seating";
+
+        const tableOpen = db.find((table) => {
+            if(rezFormData.guests <= table.seats && time) return table
+        })
+
+        const tableId = tableOpen.id
+
+        // update (patch) rez-table to false
+        fetch(`http://localhost:3001/${rezFormData.date}_tables/${tableId}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({[time]: false})
+        })
+        
+        // // add new res to db
         fetch("http://localhost:3001/reservations", {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(rezFormData)
+            body: JSON.stringify({
+                ...rezFormData,
+                "table": tableId
+            })
+
         })
             .then(r => {
                 if (r.ok) {
@@ -54,12 +78,13 @@ function ReservationForm() {
             .then(rez => {
                 onNewRez(rez)
                 setRezFormData(initialState)
+                // setIs1930Open(false)
+                // setIs2100Open(false)
             })
-
-        // update table in db
     }
 
     useEffect(() => {
+ 
         let day = rezFormData.date
         let db = day === "friday" ? friRez : satRez;
         
@@ -76,12 +101,13 @@ function ReservationForm() {
                 return res
             }
         })
+        
         setFilteredSlots(filterByTable)
     }, [rezFormData])
 
-    const btn1930 = is1930Open ? 
+    const btn1930 = (is1930Open && rezFormData.date && rezFormData.guests) ? 
         <button onClick={handleChange} type="button" name="time" value="7:30">7:30PM</button> : null
-    const btn2100 = is2100Open ? 
+    const btn2100 = (is2100Open && rezFormData.date && rezFormData.guests) ? 
         <button onClick={handleChange} type="button" name="time" value="9:00">9:00PM</button> : null
 
     return (
@@ -92,10 +118,11 @@ function ReservationForm() {
                 <label htmlFor="date">Date  </label>
                 <select 
                     name="date" 
-                    defaultValue="default"
-                    onChange={handleChange} 
+                    // defaultValue="default"
+                    onChange={handleChange}
+                    value={rezFormData.date} 
                 >
-                    <option value="default" disabled hidden>-----</option>
+                    <option value="" >-----</option>
                     <option value="friday">Fri, Oct 20</option>
                     <option value="saturday">Sat, Oct 21</option>
                 </select>
@@ -104,10 +131,11 @@ function ReservationForm() {
                 <label htmlFor="guests">Number of Guests  </label>
                 <select 
                     name="guests" 
-                    defaultValue="default"
+                    // defaultValue="default"
+                    value={rezFormData.guests}
                     onChange={handleChange} 
                 > 
-                    <option value="default" disabled hidden>-----</option>
+                    <option value="" >-----</option>
                     <option value="2">2 people</option>
                     <option value="3">3 people</option>
                     <option value="4">4 people</option>
