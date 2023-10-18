@@ -30,7 +30,23 @@ function Content() {
         console.log(changedReservation)
     }
 
-    const context = {reservations, friRez, satRez, handleChangeReservation}
+    const context = {
+        reservations, 
+        friRez, 
+        satRez, 
+        onNewRez, 
+        setFriRez,
+        setSatRez,
+        handleChangeReservation
+    }
+
+    function onNewRez(newRez) {
+        setReservations(newRez)
+    }
+
+    // console.log("satRez" , satRez)
+
+    // console.log(reservations)
 
     return (
         <div>
