@@ -1,15 +1,33 @@
+import { useState } from "react";
 import Table from "./Table";
 import tables from "../data/tableData";
 
-function TableChart({reservations, dayAndTime, selectedReservation, changeDayAndTime}) {
+const dayAndTimeStart = {
+    day: "",
+    time: ""
+}
+
+function TableChart({reservations, selectedReservation}) {
+    const [dayAndTime, setDayAndTime] = useState(dayAndTimeStart);
+    
+    function handleChange(event) {
+        setDayAndTime({
+            ...dayAndTime,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    const filteredReservations = reservations.filter(res => {
+        if ((res.date === dayAndTime.day.toLowerCase()) && (res.time === dayAndTime.time)) {
+            return res
+        }
+    })
 
     const tableList = tables.map(table => (
-        <Table key={table.number} table={table} reservations={reservations} selectedReservation={selectedReservation} dayAndTime={dayAndTime} />
+        <Table key={table.number} table={table} filteredReservations={filteredReservations} selectedReservation={selectedReservation} dayAndTime={dayAndTime} />
     ))
 
-    function handleChange(event) {
-        changeDayAndTime(event.target.name, event.target.value)
-    }
+    console.log("filtered reservations", filteredReservations)
 
     return (
         <div id="table-section">

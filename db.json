@@ -206,15 +206,6 @@
       "time": "7:30",
       "table": 3,
       "id": 9
-    },
-    {
-      "name": "ling",
-      "phoneNumber": "1111111111",
-      "guests": "2",
-      "date": "friday",
-      "time": "7:30",
-      "table": 4,
-      "id": 10
     }
   ]
 }
