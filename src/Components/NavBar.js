@@ -3,10 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 function NavBar() {
 
     const location = useLocation();
-    console.log(location)
-
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
-
     const linkClass = (location.pathname === "/") ? "home-link": "nav-link";
 
     return (

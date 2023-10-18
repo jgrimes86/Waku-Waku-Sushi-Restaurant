@@ -11,11 +11,11 @@ const defaultResForm = {
     time: "",
 }
 
-function ReservationItem({res, clickOnReservation, selectedReservation, handleChangeReservation}) {
+function ReservationItem({res, clickOnReservation, selectedReservation}) {
     const {id, name, phoneNumber, date, time, guests, table} = res;
     const [editResForm, setEditResForm] = useState(defaultResForm)
 
-    const {friRez, satRez, setFriRez, setSatRez} = useOutletContext()
+    const {handleChangeReservation, friRez, satRez, setFriRez, setSatRez} = useOutletContext()
     
     function handleClick() {
         clickOnReservation(res)
@@ -53,7 +53,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
             })
             .then(resp => resp.json())
             .then(oldTable => {
-                originalTableDBUpdate(originalTableDB => originalTableDB.map(table => {
+                originalTableDBUpdate(() => originalTableDB.map(table => {
                     if(table.id === oldTable.id) {
                         return oldTable
                     } else return table
@@ -67,7 +67,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
                     body: JSON.stringify({[newSeating]: false})
                 })
                 .then(resp => resp.json())
-                .then(newTable => newTableDBUpdate(newTableDb => newTableDb.map(table => {
+                .then(newTable => newTableDBUpdate(() => newTableDb.map(table => {
                     if(table.id === newTable.id) {
                         return newTable
                     } else return table
@@ -83,7 +83,10 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
             body: JSON.stringify(changedReservation)
         })
         .then(resp => resp.json())
-        .then(updatedRes => handleChangeReservation(updatedRes))
+        .then(updatedRes => {
+            handleChangeReservation(updatedRes);
+            setEditResForm(defaultResForm)
+        })
     }
 
     function clearFormContent() {

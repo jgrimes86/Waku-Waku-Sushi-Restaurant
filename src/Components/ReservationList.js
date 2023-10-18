@@ -1,9 +1,9 @@
 import ReservationItem from "./ReservationItem"
 
-function ReservationList({reservations, clickOnReservation, selectedReservation, handleChangeReservation}) {
+function ReservationList({reservations, clickOnReservation, selectedReservation}) {
 
     const reservationList = reservations.map(res => {
-        return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} handleChangeReservation={handleChangeReservation} />;
+        return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} />;
 })
 
     return (
