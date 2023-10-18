@@ -1,17 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
 
     const [password, setPassword] = useState("")
+    const navigate = useNavigate(); 
 
     function handleChange(event) {
         setPassword(event.target.value)
     }
-
+    
     // console.log(password)
     
     function onLogin() {
         if (password === "waku123") {
+            navigate("/staff");
             return console.log("Correct Password")
         } else {
             return console.log("Try again")
