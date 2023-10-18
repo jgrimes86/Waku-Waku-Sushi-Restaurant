@@ -1,11 +1,17 @@
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 
-function Content() {
+function Content({ toggleLogin }) {
+
+    useEffect(() => {
+        console.log("content useEffect", toggleLogin)
+    }, [])
+
     const [reservations, setReservations] = useState([]);
     const [friRez, setFriRez] = useState([])
     const [satRez, setSatRez] = useState ([])
     const [activeRez, setActiveRez] = useState({})
+    
 
     const databaseURL = "http://localhost:3001"
 
@@ -42,8 +48,11 @@ function Content() {
         onSatTableUpdate,
         handleChangeReservation,
         activeRez,
-        setActiveRez
+        setActiveRez,
+        toggleLogin
     }
+
+    console.log("is this changing", toggleLogin)
 
     function onNewRez(newRez) {
         setReservations(currentRez => [...currentRez, newRez])

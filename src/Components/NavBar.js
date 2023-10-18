@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from "react-router-dom";
 
-function NavBar() {
+function NavBar({ isLoggedIn }) {
 
     const location = useLocation();
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
@@ -31,7 +31,7 @@ function NavBar() {
                 to="/login"
                 className={linkClass}
             >
-                Login
+                {isLoggedIn}
             </NavLink>
             <NavLink 
                 to="/contact"
