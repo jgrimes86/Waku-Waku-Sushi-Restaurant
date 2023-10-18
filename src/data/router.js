@@ -5,6 +5,7 @@ import Menu from "../Components/Menu";
 import ReservationForm from "../Components/ReservationForm";
 import Login from "../Components/Login";
 import StaffPage from "../Components/StaffPage";
+import ContactUs from "../Components/ContactUs";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
                     {
                         path: "/staff",
                         element: <StaffPage />
+                    },
+                    {
+                        path: "/contact",
+                        element: <ContactUs />
                     }
                 ]
             }

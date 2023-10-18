@@ -39,6 +39,12 @@ function NavBar() {
             >
                 StaffPage
             </NavLink>
+            <NavLink 
+                to="/contact"
+                className={linkClass}
+            >
+                Contact Us
+            </NavLink>
         </nav>
     )
 }
