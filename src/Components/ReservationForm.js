@@ -1,9 +1,9 @@
-import { tab } from "@testing-library/user-event/dist/tab";
 import { useEffect, useState } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useNavigate } from "react-router-dom";
 // import Input from "react-phone-input-2"
 // import PhoneInput from "react-phone-input-2"
 // import "react-phone-input-2/lib/style.css"
+
 
 const initialState = {
     name: "",
@@ -15,13 +15,17 @@ const initialState = {
 }
 
 function ReservationForm() {
+
     const {
         friRez, 
         satRez, 
         onNewRez, 
         onFriTableUpdate,
-        onSatTableUpdate
+        onSatTableUpdate,
+        setActiveRez
     } = useOutletContext();
+
+    const navigate = useNavigate(); 
     
     const [rezFormData, setRezFormData] = useState(initialState)  
     const {name, phoneNumber, guests, date, time} = rezFormData
@@ -78,10 +82,11 @@ function ReservationForm() {
                 }
             })
             .then(rez => {
-                    if (day === "friday") {
-                        onFriTableUpdate(rez)
-                    } else if (day === "saturday")
-                        onSatTableUpdate(rez)
+                if (day === "friday") {
+                    onFriTableUpdate(rez)
+                } else if (day === "saturday") {
+                    onSatTableUpdate(rez)
+                }                
             })
         
         // add new res to db
@@ -105,11 +110,16 @@ function ReservationForm() {
             .then(rez => {
                 onNewRez(rez)
                 setRezFormData(initialState)
+                console.log("post", rez)
+                setActiveRez(rez)
             })
+
         setRezFormData(initialState)
         setFilteredSlots("")
         setIs1930Open(false)
         setIs2100Open(false)
+
+       navigate("/reservation-success");
     }
 
     function updateOpenTable(db) {

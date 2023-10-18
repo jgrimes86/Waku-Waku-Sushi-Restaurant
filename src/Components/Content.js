@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import StaffPage from "./StaffPage";
-import Menu from "./Menu";
-import ReservationForm from "./ReservationForm";
-import Login from "./Login";
 
 function Content() {
     const [reservations, setReservations] = useState([]);
     const [friRez, setFriRez] = useState([])
     const [satRez, setSatRez] = useState ([])
+    const [activeRez, setActiveRez] = useState({})
 
     const databaseURL = "http://localhost:3001"
 
@@ -44,10 +41,12 @@ function Content() {
         onFriTableUpdate,
         onSatTableUpdate,
         handleChangeReservation,
+        activeRez,
+        setActiveRez
     }
 
     function onNewRez(newRez) {
-        setReservations(newRez)
+        setReservations(currentRez => [...currentRez, newRez])
     }
 
     function onFriTableUpdate(updatedTable) {
@@ -69,17 +68,10 @@ function Content() {
             }
         }))
     }
-    // console.log("satRez" , satRez)
-
-    // console.log(reservations)
 
     return (
         <div>
             <Outlet context={context} />
-            {/* <Menu />
-            <Reservation reservations={reservations}/>
-            <Login /> */}
-            {/* <StaffPage reservations={reservations} /> */}
         </div>
     )
 }
