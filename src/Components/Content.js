@@ -27,7 +27,11 @@ function Content() {
     }, [])
 
     function handleChangeReservation(changedReservation) {
-        console.log(changedReservation)
+        setReservations(reservations => reservations.map(res => {
+            if (res.id === changedReservation.id) {
+                return changedReservation
+            } else return res
+        }))
     }
 
     const context = {

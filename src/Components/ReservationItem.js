@@ -1,18 +1,21 @@
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
 
 const defaultResForm = {
-    date: "",
-    guests: "",
     id: "",
     name: "",
     phoneNumber: "",
+    guests: "",
+    date: "",
     table: "",
-    time: ""
+    time: "",
 }
 
 function ReservationItem({res, clickOnReservation, selectedReservation, handleChangeReservation}) {
     const {id, name, phoneNumber, date, time, guests, table} = res;
     const [editResForm, setEditResForm] = useState(defaultResForm)
+
+    const {friRez, satRez, setFriRez, setSatRez} = useOutletContext()
 
     // console.log("reservation form: ", editResForm)
     
@@ -29,13 +32,52 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log("clicked")
+        // console.log("clicked")
         let changedReservation = {...editResForm}
         for (let key in changedReservation) {
             if (!changedReservation[key]) {
                 changedReservation[key] = selectedReservation[key]
             }
         }
+        if (changedReservation.table !== selectedReservation.table) {
+            const originalTableDB = (selectedReservation.date === "friday") ? friRez : satRez;
+            const originalTableDBUpdate = (selectedReservation.date === "friday") ? setFriRez : setSatRez;
+            const originalSeating = (selectedReservation.time === "7:30" ? "1930-seating" : "2100-seating");
+            const newTableDb = (changedReservation.date === "friday") ? friRez : satRez;
+            const newTableDBUpdate = (changedReservation.date === "friday") ? setFriRez : setSatRez;
+            const newSeating = (changedReservation.time === "7:30" ? "1930-seating" : "2100-seating");
+            // update current table
+            fetch(`http://localhost:3001/${changedReservation.date}_tables/${selectedReservation.table}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({[originalSeating]: true})
+            })
+            .then(resp => resp.json())
+            .then(oldTable => {
+                originalTableDBUpdate(originalTableDB => originalTableDB.map(table => {
+                    if(table.id === oldTable.id) {
+                        return oldTable
+                    } else return table
+                }));
+                // update new table
+                fetch(`http://localhost:3001/${changedReservation.date}_tables/${changedReservation.table}`, {
+                    method: "PATCH",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({[newSeating]: false})
+                })
+                .then(resp => resp.json())
+                .then(newTable => newTableDBUpdate(newTableDb => newTableDb.map(table => {
+                    if(table.id === newTable.id) {
+                        return newTable
+                    } else return table
+                })))
+            })
+        }
+        // update reservation
         fetch(`http://localhost:3001/reservations/${changedReservation.id}`, {
             method: "PUT",
             headers: {
@@ -43,8 +85,14 @@ function ReservationItem({res, clickOnReservation, selectedReservation, handleCh
             },
             body: JSON.stringify(changedReservation)
         })
-        handleChangeReservation(changedReservation)
+        .then(resp => resp.json())
+        .then(updatedRes => handleChangeReservation(updatedRes))
     }
+
+    // console.log("friday tables: ", friRez)
+    // console.log("saturday tables: ", satRez)
+
+
 
     const reservationChange = () => {
         return (
