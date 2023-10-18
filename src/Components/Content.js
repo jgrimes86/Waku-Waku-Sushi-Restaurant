@@ -43,7 +43,7 @@ function Content() {
         setSatRez,
         onFriTableUpdate,
         onSatTableUpdate,
-        handleChangeReservation
+        handleChangeReservation,
     }
 
     function onNewRez(newRez) {
