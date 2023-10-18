@@ -39,7 +39,7 @@ function Content() {
         setReservations(newRez)
     }
 
-    console.log("satRez" , satRez)
+    // console.log("satRez" , satRez)
 
     // console.log(reservations)
 

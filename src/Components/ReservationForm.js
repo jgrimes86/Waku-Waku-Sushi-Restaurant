@@ -47,10 +47,8 @@ function ReservationForm() {
         let day = rezFormData.date 
         let time = rezFormData.time === "7:30" ? "1930-seating" : "2100-seating";
         
-        // it's not picking out a free table right now
-        // maybe we can filter free tables first in another fn?
         const tableOpen = filteredSlots.find((table) => {
-            return (table[time] = true)
+            if (table[time] === true) return table
         })
 
         const tableId = tableOpen.id
@@ -58,7 +56,7 @@ function ReservationForm() {
         console.log("Tableopen", tableOpen)
         console.log("Table: ", tableId)
 
-        // // update (patch) rez-table to false
+        // update (patch) rez-table to false
         fetch(`http://localhost:3001/${rezFormData.date}_tables/${tableId}`, {
             method: "PATCH",
             headers: {
@@ -80,31 +78,31 @@ function ReservationForm() {
             
         
         
-        // // // add new res to db
-        // fetch("http://localhost:3001/reservations", {
-        //     method: "POST", 
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         ...rezFormData,
-        //         "table": tableId
-        //     })
+        // add new res to db
+        fetch("http://localhost:3001/reservations", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ...rezFormData,
+                "table": tableId
+            })
 
-        // })
-        //     .then(r => {
-        //         if (r.ok) {
-        //             return r.json()
-        //         } else {
-        //             throw Error("New reservation not made")
-        //         }
-        //     })
-        //     .then(rez => {
-        //         onNewRez(rez)
-        //         setRezFormData(initialState)
-        //         // setIs1930Open(false)
-        //         // setIs2100Open(false)
-        //     })
+        })
+            .then(r => {
+                if (r.ok) {
+                    return r.json()
+                } else {
+                    throw Error("New reservation not made")
+                }
+            })
+            .then(rez => {
+                onNewRez(rez)
+                setRezFormData(initialState)
+                // setIs1930Open(false)
+                // setIs2100Open(false)
+            })
         setRezFormData(initialState)
         setFilteredSlots("")
         setIs1930Open(false)
@@ -123,7 +121,7 @@ function ReservationForm() {
                 return res
             } 
             else {
-                console.log(`table ${res.id} is unavailable`)
+                console.log(`table ${res.id} is booked for the day`)
             }
         })
         setFilteredSlots(filtered)
@@ -158,10 +156,10 @@ function ReservationForm() {
         
     }, [rezFormData])
 
-    console.log("730pm", is1930Open)
-    console.log("9pm", is2100Open)
-    console.log("filteredSlots", filteredSlots)
-    console.log("rezFormData", rezFormData)
+    // console.log("730pm", is1930Open)
+    // console.log("9pm", is2100Open)
+    // console.log("filteredSlots", filteredSlots)
+    // console.log("rezFormData", rezFormData)
 
     return (
         <div className="reservation">
@@ -171,7 +169,6 @@ function ReservationForm() {
                 <label htmlFor="date">Date  </label>
                 <select 
                     name="date" 
-                    // defaultValue="default"
                     onChange={handleChange}
                     value={rezFormData.date} 
                 >
@@ -184,7 +181,6 @@ function ReservationForm() {
                 <label htmlFor="guests">Number of Guests  </label>
                 <select 
                     name="guests" 
-                    // defaultValue="default"
                     value={rezFormData.guests}
                     onChange={handleChange} 
                 > 
