@@ -1,9 +1,9 @@
 import ReservationItem from "./ReservationItem"
 
-function ReservationList({reservations, changeDayAndTime, resMessage, clickOnReservation}) {
+function ReservationList({reservations, changeDayAndTime, resMessage, clickOnReservation, selectedReservation, handleChangeReservation}) {
 
     const reservationList = reservations.map(res => {
-        return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} />;
+        return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} handleChangeReservation={handleChangeReservation} />;
 })
 
     function handleChange(event) {
@@ -14,14 +14,14 @@ function ReservationList({reservations, changeDayAndTime, resMessage, clickOnRes
         <div id="reservation-filter" >
             <div>
                 <label htmlFor="day">Select a Day:</label>
-                <select name="day" id="day-select" onChange={handleChange}>
+                <select className="dropdown" name="day" id="day-select" onChange={handleChange}>
                     <option value=""></option>
                     <option value="Friday">Friday</option>
                     <option value="Saturday">Saturday</option>
                 </select>
                 <br />
                 <label htmlFor="time">Select a Time:</label>
-                <select name="time" id="time-select" onChange={handleChange}>
+                <select className="dropdown" name="time" id="time-select" onChange={handleChange}>
                     <option value=""></option>
                     <option value="7:30">7:30</option>
                     <option value="9:00">9:00</option>

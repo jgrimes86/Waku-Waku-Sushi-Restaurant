@@ -26,7 +26,11 @@ function Content() {
         .then(setSatRez)
     }, [])
 
-    const context = {reservations, friRez, satRez}
+    function handleChangeReservation(changedReservation) {
+        console.log(changedReservation)
+    }
+
+    const context = {reservations, friRez, satRez, handleChangeReservation}
 
     return (
         <div>

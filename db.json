@@ -55,7 +55,6 @@
       "seats": 4,
       "1930-seating": true,
       "2100-seating": true
-
     },
     {
       "id": 2,
@@ -128,13 +127,13 @@
   ],
   "reservations": [
     {
+      "date": "saturday",
+      "guests": "3",
       "id": 1,
       "name": "Smith",
       "phoneNumber": "555-555-0123",
-      "guests": "3",
-      "date": "friday",
-      "time": "7:30",
-      "table": "2"
+      "table": "1",
+      "time": "9:00"
     },
     {
       "id": 2,
