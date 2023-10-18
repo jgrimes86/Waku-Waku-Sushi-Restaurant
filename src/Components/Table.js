@@ -15,11 +15,6 @@ function Table({table, reservations, selectedReservation, dayAndTime}) {
         const currentTable = selectedReservation.table;
         const newTable = number
         console.log(currentTable, newTable)
-        // change "table" value in selectedReservation
-        // change "table" value for reservation in filteredReservations
-        // change "table" value in reservation database
-        // change currentTable time slot to "true" in table database
-        // change newTable time slot to "false" in table database
     }
 
     return (

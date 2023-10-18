@@ -1,38 +1,49 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function NavBar() {
+
+    const location = useLocation();
+    const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
+    const linkClass = (location.pathname === "/") ? "home-link": "nav-link";
+
     return (
-        <nav>
+        <nav className={navClass}>
             <NavLink
                 to="/"
-                className="nav-link"
+                className={linkClass}
             >
                 Home
             </NavLink>
             <NavLink
                 to="/menu"
-                className="nav-link"
+                className={linkClass}
             >
                 Menu
             </NavLink>
             <NavLink
                 to="/reservations"
-                className="nav-link"
+                className={linkClass}
 
             >
                 Reservations
             </NavLink>
             <NavLink
                 to="/login"
-                className="nav-link"
+                className={linkClass}
             >
                 Login
             </NavLink>
             <NavLink
                 to="/staff"
-                className="nav-link"
+                className={linkClass}
             >
                 StaffPage
+            </NavLink>
+            <NavLink 
+                to="/contact"
+                className={linkClass}
+            >
+                Contact Us
             </NavLink>
         </nav>
     )

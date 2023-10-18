@@ -136,11 +136,11 @@
       "time": "9:00"
     },
     {
-      "date": "saturday",
-      "guests": "4",
       "id": 2,
       "name": "Churchill",
       "phoneNumber": "555-555-2727",
+      "guests": "4",
+      "date": "saturday",
       "table": "1",
       "time": "9:00"
     },
