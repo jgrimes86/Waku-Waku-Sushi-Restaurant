@@ -18,13 +18,14 @@ function Login() {
         if (password === "waku123") {
             toggleLogin();
             navigate("/staff");
+            setPassword("")
             
             return console.log("Correct Password")
         } else {
             e.preventDefault()
             return console.log("Try again")
         }
-        setPassword("")
+        
     }
 
     const onEnterPress = (e) => {
@@ -43,7 +44,7 @@ function Login() {
                         name="password"
                         placeholder="try waku123"
                         onChange={handleChange}
-                        onKeyPress={onEnterPress}
+                        onKeyDown={onEnterPress}
                         required
                     />
                 </form>

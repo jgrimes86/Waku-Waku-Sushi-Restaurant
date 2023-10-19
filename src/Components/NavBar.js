@@ -1,10 +1,12 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation} from "react-router-dom";
 
-function NavBar({ isLoggedIn }) {
+function NavBar({ isLoggedIn, toggleLogin }) {
 
     const location = useLocation();
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
-    const linkClass = (location.pathname === "/") ? "home-link": "nav-link";
+    const disabledClass = (location.pathname === "/staff") ? "disabled" : "";
+    const linkClass = (location.pathname === "/" ) ? `home-link ${disabledClass}`: `nav-link ${disabledClass}`;
+    const loginLinkClass = (location.pathname === "/") ? `home-link`: `nav-link`;
 
     return (
         <nav className={navClass}>
@@ -23,13 +25,13 @@ function NavBar({ isLoggedIn }) {
             <NavLink
                 to="/reservations"
                 className={linkClass}
-
             >
                 Reservations
             </NavLink>
             <NavLink
                 to="/login"
-                className={linkClass}
+                className={loginLinkClass}
+                onClick={toggleLogin}
             >
                 {isLoggedIn}
             </NavLink>

@@ -184,3 +184,7 @@ h2 {
 .active {
   color: gold
 }
+
+.disabled {
+  pointer-events: none;
+}
