@@ -174,6 +174,7 @@ function ReservationForm() {
                     <label htmlFor="guests">Number of Guests  </label>
                     <select name="guests" value={rezFormData.guests} onChange={handleChange}> 
                         <option value="" disabled>-----</option>
+                        <option value="1">1 person</option>
                         <option value="2">2 people</option>
                         <option value="3">3 people</option>
                         <option value="4">4 people</option>
@@ -181,26 +182,21 @@ function ReservationForm() {
                 </div>
                 
                 <div id="form-input">
-                    {/* name */}
-                    {/* <div id="form-name"> */}
-                        <label htmlFor="name">Name  </label>
-                        <input type="text" name="name" value={name} onChange={handleChange} required/>
-                    {/* </div> */}
-                    
-                    {/* phone number */}
-                    {/* <div id="form-phone"> */}
-                        <label htmlFor="phoneNumber">Phone Number  </label>
-                        <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} require />
-                    {/* </div> */}
+                    <label htmlFor="name">Name  </label>
+                    <input type="text" name="name" value={name} onChange={handleChange}/>
+
+                    <label htmlFor="phoneNumber">Phone Number  </label>
+                    <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange}/>
                 </div>
 
                 <div id="form-btns">
                     {btn1930}
                     {btn2100}
                 </div>
-                
+
+                <button onClick={handleSubmit} type="submit">Make A Reservation</button>
             </form>
-            <button onClick={handleSubmit} type="submit">Make A Reservation</button>
+            
         </div>
     )
 }

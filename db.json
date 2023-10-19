@@ -92,7 +92,7 @@
       "id": 1,
       "seats": 2,
       "1930-seating": true,
-      "2100-seating": true
+      "2100-seating": false
     },
     {
       "id": 2,
@@ -215,6 +215,15 @@
       "date": "Saturday",
       "table": "3",
       "time": "9:00"
+    },
+    {
+      "name": "George",
+      "phoneNumber": "1234567899",
+      "guests": "1",
+      "date": "Saturday",
+      "time": "",
+      "table": 1,
+      "id": 11
     }
   ]
 }

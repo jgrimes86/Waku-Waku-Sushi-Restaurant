@@ -126,13 +126,14 @@ h2 {
 
 .reservation-form {
   margin: 0 20%;
+  border-style: groove;
 }
 
 #form-select {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 #form-select select {
@@ -181,12 +182,34 @@ h2 {
 
 #form-input input {
   padding: 5px;
-  margin: 10px;
+  margin: 8px;
 }
 
 .reservation button[type="submit"] {
-  background-color: pink;
+  margin: 20px auto 100px auto;
+  padding: 5px;
 }
+
+#form-btns {
+  margin: 20px 0;
+}
+
+.reservation button[type="button"] {
+  margin: 0 10px;
+  padding: 5px;
+}
+
+/* Reservation Success */
+#res-success {
+  text-align: center;
+  border-style: groove;
+  margin: 0 20% 30% 20%;
+}
+
+#res-success p {
+  margin: 10px;
+}
+
 
 /* Contact Us */
 .contact div {
