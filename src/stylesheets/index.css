@@ -29,6 +29,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10%;
 }
 
 .menu-item {
@@ -231,3 +232,13 @@ h2 {
 .active {
   text-decoration-line: underline;
 }
+
+/* footer */
+ #footer {
+  padding: 50px;
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  font-size: 55%;
+  font-style: italic;
+ }
