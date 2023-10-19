@@ -40,6 +40,12 @@ function App() {
         }))
     }
 
+    function handleReservationDelete(id) {
+        setReservations(reservations => reservations.filter(res => {
+            if (res.id !== id) return res
+        }))
+    }
+
     function onFriTableUpdate(updatedTable) {
         setFriRez(currentTables => currentTables.map(table => {
             if (table.id === updatedTable.id) {
@@ -80,6 +86,7 @@ function App() {
         onFriTableUpdate,
         onSatTableUpdate,
         handleChangeReservation,
+        handleReservationDelete,
         activeRez,
         setActiveRez,
         toggleLogin

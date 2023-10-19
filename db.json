@@ -52,178 +52,169 @@
   "friday_tables": [
     {
       "id": 1,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": true
-    },
-    {
-      "id": 2,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": false
-    },
-    {
-      "id": 3,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": true
-    },
-    {
-      "id": 4,
-      "seats": 2,
-      "1930-seating": false,
-      "2100-seating": true
-    },
-    {
-      "id": 5,
       "seats": 2,
       "1930-seating": true,
       "2100-seating": true
     },
     {
-      "id": 6,
+      "id": 2,
+      "seats": 2,
+      "1930-seating": true,
+      "2100-seating": false
+    },
+    {
+      "id": 3,
       "seats": 2,
       "1930-seating": false,
+      "2100-seating": true
+    },
+    {
+      "id": 4,
+      "seats": 4,
+      "1930-seating": true,
+      "2100-seating": false
+    },
+    {
+      "id": 5,
+      "seats": 4,
+      "1930-seating": false,
+      "2100-seating": true
+    },
+    {
+      "id": 6,
+      "seats": 4,
+      "1930-seating": true,
       "2100-seating": true
     }
   ],
   "saturday_tables": [
     {
       "id": 1,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": false
-    },
-    {
-      "id": 2,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": true
-    },
-    {
-      "id": 3,
-      "seats": 4,
-      "1930-seating": false,
-      "2100-seating": true
-    },
-    {
-      "id": 4,
       "seats": 2,
       "1930-seating": true,
       "2100-seating": true
     },
     {
-      "id": 5,
+      "id": 2,
       "seats": 2,
+      "1930-seating": false,
+      "2100-seating": false
+    },
+    {
+      "id": 3,
+      "seats": 2,
+      "1930-seating": true,
+      "2100-seating": false
+    },
+    {
+      "id": 4,
+      "seats": 4,
+      "1930-seating": false,
+      "2100-seating": true
+    },
+    {
+      "id": 5,
+      "seats": 4,
       "1930-seating": false,
       "2100-seating": true
     },
     {
       "id": 6,
-      "seats": 2,
-      "1930-seating": true,
+      "seats": 4,
+      "1930-seating": false,
       "2100-seating": true
     }
   ],
   "reservations": [
     {
       "id": 1,
-      "name": "Smith",
+      "name": "Barlow",
       "phoneNumber": "555-555-0123",
       "guests": "4",
+      "date": "friday",
+      "table": "4",
+      "time": "9:00"
+    },
+    {
+      "id": 2,
+      "name": "Cruz",
+      "phoneNumber": "555-555-2727",
+      "guests": "2",
+      "date": "saturday",
+      "table": "2",
+      "time": "7:30"
+    },
+    {
+      "id": 3,
+      "name": "Rojas",
+      "phoneNumber": "7916122209",
+      "guests": "2",
       "date": "friday",
       "table": "2",
       "time": "9:00"
     },
     {
-      "id": 2,
-      "name": "Churchill",
-      "phoneNumber": "555-555-2727",
-      "guests": "4",
+      "id": 4,
+      "name": "Sutton",
+      "phoneNumber": "6072951704",
+      "guests": "2",
+      "date": "friday",
+      "table": "3",
+      "time": "7:30"
+    },
+    {
+      "id": 5,
+      "name": "Hodges",
+      "phoneNumber": "6345895924",
+      "guests": "2",
       "date": "saturday",
-      "table": "1",
+      "table": "2",
       "time": "9:00"
     },
     {
-      "id": 3,
-      "name": "Rodriguez",
-      "phoneNumber": "555-555-1800",
-      "guests": "2",
-      "date": "friday",
-      "table": "6",
+      "id": 6,
+      "name": "Acosta",
+      "phoneNumber": "2027965562",
+      "guests": "3",
+      "date": "saturday",
+      "table": "4",
       "time": "7:30"
     },
     {
-      "name": "Ling",
-      "phoneNumber": "1111111111",
-      "guests": "4",
-      "date": "saturday",
-      "time": "7:30",
-      "table": 1,
-      "id": 4
-    },
-    {
-      "name": "Ling",
-      "phoneNumber": "1111111111",
-      "guests": "2",
-      "date": "friday",
-      "time": "7:30",
-      "table": 1,
-      "id": 5
-    },
-    {
-      "name": "Ling",
-      "phoneNumber": "1233333333",
-      "guests": "4",
-      "date": "saturday",
-      "time": "7:30",
-      "table": 2,
-      "id": 6
-    },
-    {
-      "name": "Ling",
-      "phoneNumber": "1111111111",
-      "guests": "2",
-      "date": "saturday",
-      "time": "7:30",
-      "table": 3,
-      "id": 7
-    },
-    {
-      "name": "ling",
-      "phoneNumber": "2222222222",
+      "id": 7,
+      "name": "Park",
+      "phoneNumber": "5802032085",
       "guests": "4",
       "date": "friday",
-      "time": "7:30",
-      "table": 2,
-      "id": 8
+      "table": "5",
+      "time": "7:30"
     },
     {
-      "name": "ling",
-      "phoneNumber": "1111111111",
-      "guests": "2",
-      "date": "friday",
-      "time": "7:30",
-      "table": 3,
-      "id": 9
-    },
-    {
-      "name": "ling",
-      "phoneNumber": "1111111111",
-      "guests": "2",
-      "date": "friday",
-      "time": "7:30",
-      "table": 4,
-      "id": 10
-    },
-    {
-      "id": 11,
-      "name": "dan",
-      "phoneNumber": "7089539013",
-      "guests": "2",
+      "id": 8,
+      "name": "Coleman",
+      "phoneNumber": "5062624791",
+      "guests": "3",
       "date": "saturday",
       "table": "5",
       "time": "7:30"
+    },
+    {
+      "name": "Duncan",
+      "phoneNumber": "8574415978",
+      "guests": "4",
+      "date": "saturday",
+      "time": "7:30",
+      "table": 6,
+      "id": 9
+    },
+    {
+      "id": 10,
+      "name": "Lee",
+      "phoneNumber": "2835887244",
+      "guests": "2",
+      "date": "saturday",
+      "table": "3",
+      "time": "9:00"
     }
   ]
 }
