@@ -81,9 +81,9 @@ function ReservationForm() {
                 }
             })
             .then(rez => {
-                if (day === "friday") {
+                if (day === "Friday") {
                     onFriTableUpdate(rez)
-                } else if (day === "saturday") {
+                } else if (day === "Saturday") {
                     onSatTableUpdate(rez)
                 }                
             })
@@ -144,7 +144,7 @@ function ReservationForm() {
         let guest = rezFormData.guests
 
         if (day && guest) {
-            let db = day === "friday" ? friRez : satRez;
+            let db = day === "Friday" ? friRez : satRez;
 
             const filterbyGuestAmt = db.filter((res) => {
                 if (guest <= res.seats) return res
@@ -156,7 +156,7 @@ function ReservationForm() {
             let db
 
             if (day) {
-                if (day === "friday") {
+                if (day === "Friday") {
                     db = friRez
                 } else {
                     db = satRez
@@ -185,8 +185,8 @@ function ReservationForm() {
                     value={rezFormData.date} 
                 >
                     <option value="" disabled>-----</option>
-                    <option value="friday">Fri, Oct 20</option>
-                    <option value="saturday">Sat, Oct 21</option>
+                    <option value="Friday">Fri, Oct 20</option>
+                    <option value="Saturday">Sat, Oct 21</option>
                 </select>
 
                 {/* guests */}

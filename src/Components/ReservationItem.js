@@ -30,8 +30,8 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
     }
 
     // used in handleSubmit and deleteReservation
-    const originalTableDB = (date === "friday") ? friRez : satRez;
-    const originalTableDBUpdate = (date === "friday") ? setFriRez : setSatRez;
+    const originalTableDB = (date === "Friday") ? friRez : satRez;
+    const originalTableDBUpdate = (date === "Friday") ? setFriRez : setSatRez;
     const originalSeating = (time === "7:30" ? "1930-seating" : "2100-seating");
 
     function handleSubmit(event) {
@@ -43,8 +43,8 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
             }
         }
         if (changedReservation.table !== table) {
-            const newTableDb = (changedReservation.date === "friday") ? friRez : satRez;
-            const newTableDBUpdate = (changedReservation.date === "friday") ? setFriRez : setSatRez;
+            const newTableDb = (changedReservation.date === "Friday") ? friRez : satRez;
+            const newTableDBUpdate = (changedReservation.date === "Friday") ? setFriRez : setSatRez;
             const newSeating = (changedReservation.time === "7:30" ? "1930-seating" : "2100-seating");
             // update current table
             fetch(`http://localhost:3001/${date}_tables/${table}`, {

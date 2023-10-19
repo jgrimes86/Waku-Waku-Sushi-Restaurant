@@ -18,7 +18,7 @@ function TableChart({reservations, selectedReservation}) {
     }
 
     const filteredReservations = reservations.filter(res => {
-        if ((res.date === dayAndTime.day.toLowerCase()) && (res.time === dayAndTime.time)) {
+        if ((res.date === dayAndTime.day) && (res.time === dayAndTime.time)) {
             return res
         }
     })

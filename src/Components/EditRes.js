@@ -19,8 +19,8 @@ function EditRes({handleSubmit, editResForm, handleChange, clearFormContent, del
                     onChange={handleChange}
                 >
                     <option value=""></option>
-                    <option value="friday">Friday</option>
-                    <option value="saturday">Saturday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
                 </select>
                 <br />
                 <label htmlFor="time">Time: </label>

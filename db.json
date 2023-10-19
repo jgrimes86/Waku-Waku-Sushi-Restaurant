@@ -129,80 +129,80 @@
     {
       "id": 1,
       "name": "Barlow",
-      "phoneNumber": "555-555-0123",
+      "phoneNumber": "555-482-0123",
       "guests": "4",
-      "date": "friday",
+      "date": "Friday",
       "table": "4",
       "time": "9:00"
     },
     {
       "id": 2,
       "name": "Cruz",
-      "phoneNumber": "555-555-2727",
+      "phoneNumber": "555-980-2727",
       "guests": "2",
-      "date": "saturday",
+      "date": "Saturday",
       "table": "2",
       "time": "7:30"
     },
     {
       "id": 3,
       "name": "Rojas",
-      "phoneNumber": "7916122209",
+      "phoneNumber": "555-612-2209",
       "guests": "2",
-      "date": "friday",
+      "date": "Friday",
       "table": "2",
       "time": "9:00"
     },
     {
       "id": 4,
       "name": "Sutton",
-      "phoneNumber": "6072951704",
+      "phoneNumber": "555-295-1704",
       "guests": "2",
-      "date": "friday",
+      "date": "Friday",
       "table": "3",
       "time": "7:30"
     },
     {
       "id": 5,
       "name": "Hodges",
-      "phoneNumber": "6345895924",
+      "phoneNumber": "555-589-5924",
       "guests": "2",
-      "date": "saturday",
+      "date": "Saturday",
       "table": "2",
       "time": "9:00"
     },
     {
       "id": 6,
       "name": "Acosta",
-      "phoneNumber": "2027965562",
+      "phoneNumber": "555-796-5562",
       "guests": "3",
-      "date": "saturday",
+      "date": "Saturday",
       "table": "4",
       "time": "7:30"
     },
     {
       "id": 7,
       "name": "Park",
-      "phoneNumber": "5802032085",
+      "phoneNumber": "555-203-2085",
       "guests": "4",
-      "date": "friday",
+      "date": "Friday",
       "table": "5",
       "time": "7:30"
     },
     {
       "id": 8,
       "name": "Coleman",
-      "phoneNumber": "5062624791",
+      "phoneNumber": "555-262-4791",
       "guests": "3",
-      "date": "saturday",
+      "date": "Saturday",
       "table": "5",
       "time": "7:30"
     },
     {
       "name": "Duncan",
-      "phoneNumber": "8574415978",
+      "phoneNumber": "555-441-5978",
       "guests": "4",
-      "date": "saturday",
+      "date": "Saturday",
       "time": "7:30",
       "table": 6,
       "id": 9
@@ -210,9 +210,9 @@
     {
       "id": 10,
       "name": "Lee",
-      "phoneNumber": "2835887244",
+      "phoneNumber": "555-588-7244",
       "guests": "2",
-      "date": "saturday",
+      "date": "Saturday",
       "table": "3",
       "time": "9:00"
     }
