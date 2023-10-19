@@ -4,9 +4,13 @@ function NavBar({ isLoggedIn, toggleLogout }) {
 
     const location = useLocation();
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
+
     const disabledClass = (location.pathname === "/staff") ? "disabled" : "";
     const linkClass = (location.pathname === "/" ) ? `home-link ${disabledClass}`: `nav-link ${disabledClass}`;
-    const loginLinkClass = (location.pathname === "/") ? `home-link`: `nav-link`;
+
+    const loginActive = (location.pathname === "/staff") ? "login-active" : "";
+    const loginLinkClass = (location.pathname === "/") ? `home-link ${loginActive}`: `nav-link ${loginActive}`;
+
 
     return (
         <nav className={navClass}>
