@@ -1,6 +1,6 @@
 import { NavLink, useLocation} from "react-router-dom";
 
-function NavBar({ isLoggedIn, toggleLogin }) {
+function NavBar({ isLoggedIn, toggleLogout }) {
 
     const location = useLocation();
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
@@ -31,7 +31,7 @@ function NavBar({ isLoggedIn, toggleLogin }) {
             <NavLink
                 to="/login"
                 className={loginLinkClass}
-                onClick={toggleLogin}
+                onClick={toggleLogout}
             >
                 {isLoggedIn}
             </NavLink>

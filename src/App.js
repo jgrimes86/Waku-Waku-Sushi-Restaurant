@@ -61,7 +61,13 @@ function App() {
     }
 
     const toggleLogin = () => {
-        isLoggedIn === "Login" ? setIsLoggedIn("Log Out") : setIsLoggedIn("Log In")
+        setIsLoggedIn("Log Out")
+    }
+
+    const toggleLogout = () => {
+        if (isLoggedIn === "Log Out") {
+            setIsLoggedIn("Login")
+        }
     }
 
     const context = {
@@ -82,7 +88,7 @@ function App() {
     return (
         <div>
             <Header />
-            <NavBar isLoggedIn={isLoggedIn} toggleLogin={toggleLogin}/>
+            <NavBar isLoggedIn={isLoggedIn} toggleLogout={toggleLogout}/>
             <Outlet context={context}/>
         </div>
     );
