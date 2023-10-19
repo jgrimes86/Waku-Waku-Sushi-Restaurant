@@ -12,6 +12,11 @@ h2 {
 }
 
 /* header */
+#header {
+  background-color: #000000;
+  text-align: center;
+}
+
 #header-image {
   max-width: 100%;
   height: auto;

@@ -1,8 +1,11 @@
-import WakuWaku from "./WakuWaku.png"
+import WakuWaku from "../data/WakuWaku.png"
 
 function Header() {
     return (
-        <img id="header-image" src={WakuWaku} alt="Waku Waku Sushi Restaurant" />
+        <div id="header">
+            <img id="header-image" src={WakuWaku} alt="Waku Waku Sushi Restaurant" />
+        </div>
+        
     )
 }
 
