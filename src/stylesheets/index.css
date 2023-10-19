@@ -257,6 +257,7 @@ h2 {
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: flex-start;
+  margin-bottom: 50px;
 }
 
 .table-form {
@@ -269,6 +270,7 @@ h2 {
 #reservation-filter {
   flex: 40%;
   padding: 10px;
+  /* margin-bottom: 50px; */
 }
 
 #reservation-filter div > label, h4, ul {
@@ -280,6 +282,8 @@ h2 {
   max-height: 500px;
   overflow-y: scroll;
   scrollbar-width: thin;
+  margin-bottom: 75px;
+
 }
 
 #reservation-list li {
