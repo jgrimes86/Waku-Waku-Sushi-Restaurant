@@ -8,20 +8,93 @@
 h2 {
   font-family: 'Architects Daughter', cursive;
   text-align: center;
+  font-size: 175%;
   padding: 15px;
 }
 
-/* header */
-#header-image {
-  max-width: 100%;
-  height: auto;
+/* Header */
+#header {
+  background-color: #000000;
+  text-align: center;
 }
 
-/* menu */
+#header-image {
+  max-width: 100%;
+  min-height: auto;
+  max-height: 200px;
+}
+
+/* NavBar */
+.nav-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 125px;
+  padding: 10px 6px;
+  margin: 8px 15px;
+  background: black;
+  text-decoration: none;
+  text-align: center;
+  font-size: min(10vw, 15px) ;
+  color: #f69a97;
+  border-radius: 10px / 5px;
+}
+
+ /* NavBar Home */
+.nav-home {
+  flex-direction: column;
+  align-items: center;
+  padding: 23%;
+  background-image: url("/src/data/sushi-background.gif");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.home-link {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 125px;
+  padding: 12px 7px;
+  margin-bottom: 15px;
+  background: rgba(0, 0, 0, .80);
+  text-decoration: none;
+  text-align: center;
+  font-size: min(10vw, 15px) ;
+  color: #f69a97;
+  border-radius: 10px / 5px;
+}
+
+/* NavBar Effects */
+.nav-link:hover,
+.home-link:hover,
+.nav-link:focus,
+.home-link:focus,
+.active {
+  background: black;
+  color: #fee400;
+  font-weight: bold;
+  opacity: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.75;
+}
+
+.active {
+  text-decoration-line: underline;
+}
+
+/* Menu */
 .menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 10%;
 }
 
 .menu-item {
@@ -35,10 +108,28 @@ h2 {
   width: 200px;
 }
 
-/* form */
-.reservation {
+.menu-item h3 {
+  font-size: 95%;
+}
+
+.menu-item p {
+  opacity: 95%;
+  font-size: 90%;
+  font-style: italic;
+}
+
+/* Reservations Form */
+.reservation, .reservation-form {
   text-align: center;
   margin: 0;
+}
+
+.reservation-form {
+  margin: 0 20%;
+}
+
+.reservation button[type="submit"] {
+  background-color: pink;
 }
 
 /* Contact Us */
@@ -83,7 +174,7 @@ h2 {
   text-align: center;
 }
 
-/* Reseravation List */
+/* Reservation List */
 #reservation-filter {
   flex: 40%;
   padding: 10px;
@@ -115,7 +206,7 @@ h2 {
   padding-top: 5px;
 }
 
-/* table chart */
+/* Table Chart */
 #table-section {
   flex: 60%;
   display: flex;
@@ -145,57 +236,15 @@ h2 {
 }
 
 .selected-table {
-  background-color: gold;
+  background-color: #fee400;
 }
 
-/* NavBar */
-.nav-bar {
-  display: flex;
-  justify-content: center;
-}
-
-.nav-home {
-  flex-direction: column;
-  align-items: center;
-  padding-top: 5%;
-}
-
-.nav-link{
-  display: inline-block;
-  box-sizing: border-box;
-  width: 100px;
-  padding: 5px;
-  margin: 0 6px 6px;
-  background: black;
-  text-decoration: none;
+/* Footer */
+ #footer {
+  padding: 50px;
+  background-color: #000000;
+  color: rgb(254, 228, 0, .75);
   text-align: center;
-  font-size: min(10vw, 15px) ;
-  color: pink;
-  border-radius: 10px / 5px;
-}
-
-.home-link{
-  display: inline-block;
-  box-sizing: border-box;
-  width: 150px;
-  padding: 5px;
-  margin: 0 15px 15px;
-  background: black;
-  text-decoration: none;
-  text-align: center;
-  font-size: min(10vw, 18px) ;
-  color: pink;
-  border-radius: 10px / 5px;
-}
-
-.disabled {
-  pointer-events: none;
-}
-
-.active {
-  color: gold
-}
-
-.disabled {
-  pointer-events: none;
-}
+  font-size: 55%;
+  font-style: italic;
+ }

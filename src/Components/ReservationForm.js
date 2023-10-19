@@ -1,8 +1,5 @@
 import { useEffect, useState } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
-// import Input from "react-phone-input-2"
-// import PhoneInput from "react-phone-input-2"
-// import "react-phone-input-2/lib/style.css"
 
 const initialState = {
     name: "",
@@ -27,7 +24,7 @@ function ReservationForm() {
     const navigate = useNavigate(); 
     
     const [rezFormData, setRezFormData] = useState(initialState)  
-    const {name, phoneNumber, guests, date, time} = rezFormData
+    const {name, phoneNumber} = rezFormData
 
     const [is1930Open, setIs1930Open] = useState(false)
     const [is2100Open, setIs2100Open] = useState(false)
@@ -45,7 +42,6 @@ function ReservationForm() {
                 [event.target.name]: event.target.value
             }
         })
-
         setIs1930Open(false)
         setIs2100Open(false)
     }
@@ -112,13 +108,11 @@ function ReservationForm() {
                 console.log("post", rez)
                 setActiveRez(rez)
             })
-
         setRezFormData(initialState)
         setFilteredSlots("")
         setIs1930Open(false)
         setIs2100Open(false)
-
-       navigate("/reservation-success");
+        navigate("/reservation-success");
     }
 
     function updateOpenTable(db) {
@@ -144,91 +138,66 @@ function ReservationForm() {
         let guest = rezFormData.guests
 
         if (day && guest) {
-            let db = day === "Friday" ? friRez : satRez;
-
+            let db = day === "friday" ? friRez : satRez;
             const filterbyGuestAmt = db.filter((res) => {
                 if (guest <= res.seats) return res
             })
-
             updateOpenTable(filterbyGuestAmt)
-
         } else if (day || guest) {
             let db
-
             if (day) {
                 if (day === "Friday") {
                     db = friRez
                 } else {
                     db = satRez
                 }
-
                 updateOpenTable(db)
             } 
         }
-        
     }, [rezFormData])
-
-    // console.log("730pm", is1930Open)
-    // console.log("9pm", is2100Open)
-    // console.log("filteredSlots", filteredSlots)
-    // console.log("rezFormData", rezFormData)
 
     return (
         <div className="reservation">
             <h2>Make A Reservation</h2>
             <form className="reservation-form">
-                {/* date */}
-                <label htmlFor="date">Date  </label>
-                <select 
-                    name="date" 
-                    onChange={handleChange}
-                    value={rezFormData.date} 
-                >
-                    <option value="" disabled>-----</option>
-                    <option value="Friday">Fri, Oct 20</option>
-                    <option value="Saturday">Sat, Oct 21</option>
-                </select>
 
-                {/* guests */}
-                <label htmlFor="guests">Number of Guests  </label>
-                <select 
-                    name="guests" 
-                    value={rezFormData.guests}
-                    onChange={handleChange} 
-                > 
-                    <option value="" disabled>-----</option>
-                    <option value="2">2 people</option>
-                    <option value="3">3 people</option>
-                    <option value="4">4 people</option>
-                </select>
+                <div id="form-select">
+                    {/* date */}
+                    <label htmlFor="date">Date  </label>
+                    <select name="date" onChange={handleChange} value={rezFormData.date}>
+                        <option value="" disabled>-----</option>
+                        <option value="friday">Fri, Oct 20</option>
+                        <option value="saturday">Sat, Oct 21</option>
+                    </select>
 
-                {/* name */}
-                <label htmlFor="name">Name  </label>
-                <input 
-                    type="text" 
-                    name="name"
-                    value={name}
-                    onChange={handleChange}
-                    required
-                />
+                    {/* guests */}
+                    <label htmlFor="guests">Number of Guests  </label>
+                    <select name="guests" value={rezFormData.guests} onChange={handleChange}> 
+                        <option value="" disabled>-----</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                    </select>
+                </div>
+                
+                <div id="form-input">
+                    {/* name */}
+                    <label htmlFor="name">Name  </label>
+                    <input type="text" name="name" value={name} onChange={handleChange} required/>
 
-                {/* phone number */}
-                <label htmlFor="phoneNumber">Phone Number  </label>
-                <input
-                    type="tel"
-                    name="phoneNumber"
-                    placeholder="(xxx) - xxx - xxxx"
-                    maxLength="10"
-                    value={phoneNumber}
-                    onChange={handleChange}
-                    required
-                />
-                {btn1930}
-                {btn2100}
+                    {/* phone number */}
+                    <label htmlFor="phoneNumber">Phone Number  </label>
+                    <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} require />
+                </div>
+
+                <div id="form-btns">
+                    {btn1930}
+                    {btn2100}
+                </div>
+                
             </form>
             <button onClick={handleSubmit} type="submit">Make A Reservation</button>
         </div>
     )
 }
-
 export default ReservationForm;
