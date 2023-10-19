@@ -138,7 +138,7 @@ function ReservationForm() {
         let guest = rezFormData.guests
 
         if (day && guest) {
-            let db = day === "friday" ? friRez : satRez;
+            let db = day === "Friday" ? friRez : satRez;
             const filterbyGuestAmt = db.filter((res) => {
                 if (guest <= res.seats) return res
             })
@@ -166,8 +166,8 @@ function ReservationForm() {
                     <label htmlFor="date">Date  </label>
                     <select name="date" onChange={handleChange} value={rezFormData.date}>
                         <option value="" disabled>-----</option>
-                        <option value="friday">Fri, Oct 20</option>
-                        <option value="saturday">Sat, Oct 21</option>
+                        <option value="Friday">Fri, Oct 20</option>
+                        <option value="Saturday">Sat, Oct 21</option>
                     </select>
 
                     {/* guests */}
