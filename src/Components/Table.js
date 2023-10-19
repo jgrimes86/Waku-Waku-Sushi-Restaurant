@@ -8,14 +8,8 @@ function Table({table, filteredReservations, selectedReservation, dayAndTime}) {
     const reservedClass = isReserved ? "reserved-table" : null;
     const selectedClass = (selectedReservation === isReserved) ? "selected-table" : null;
 
-    function handleTableClick() {
-        const currentTable = selectedReservation.table;
-        const newTable = number
-        console.log(currentTable, newTable)
-    }
-
     return (
-        <div id="table" className={selectedClass ? selectedClass : reservedClass} key={number} onClick={handleTableClick}>
+        <div id="table" className={selectedClass ? selectedClass : reservedClass} key={number}>
             <p>Table {number}</p>
             {isReserved ? <p>{isReserved.name}</p> : <p></p>}
             <MdTableRestaurant />

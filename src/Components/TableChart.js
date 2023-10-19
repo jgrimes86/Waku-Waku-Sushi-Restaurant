@@ -27,8 +27,6 @@ function TableChart({reservations, selectedReservation}) {
         <Table key={table.number} table={table} filteredReservations={filteredReservations} selectedReservation={selectedReservation} dayAndTime={dayAndTime} />
     ))
 
-    console.log("filtered reservations", filteredReservations)
-
     return (
         <div id="table-section">
             <h4>Select Date and Time to View Reserved Tables:</h4>

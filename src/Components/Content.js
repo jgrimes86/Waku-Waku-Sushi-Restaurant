@@ -31,6 +31,12 @@ function Content() {
         }))
     }
 
+    function handleReservationDelete(id) {
+        setReservations(reservations => reservations.filter(res => {
+            if (res.id !== id) return res
+        }))
+    }
+
     const context = {
         reservations, 
         friRez, 
@@ -41,6 +47,7 @@ function Content() {
         onFriTableUpdate,
         onSatTableUpdate,
         handleChangeReservation,
+        handleReservationDelete,
         activeRez,
         setActiveRez
     }

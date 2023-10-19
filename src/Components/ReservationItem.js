@@ -15,7 +15,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
     const {id, name, phoneNumber, date, time, guests, table} = res;
     const [editResForm, setEditResForm] = useState(defaultResForm)
 
-    const {handleChangeReservation, friRez, satRez, setFriRez, setSatRez} = useOutletContext()
+    const {handleChangeReservation, handleReservationDelete, friRez, satRez, setFriRez, setSatRez} = useOutletContext()
     
     function handleClick() {
         clickOnReservation(res)
@@ -28,6 +28,11 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
         })
     }
 
+    // used in handleSubmit and deleteReservation
+    const originalTableDB = (date === "friday") ? friRez : satRez;
+    const originalTableDBUpdate = (date === "friday") ? setFriRez : setSatRez;
+    const originalSeating = (time === "7:30" ? "1930-seating" : "2100-seating");
+
     function handleSubmit(event) {
         event.preventDefault();
         let changedReservation = {...editResForm}
@@ -37,14 +42,11 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
             }
         }
         if (changedReservation.table !== table) {
-            const originalTableDB = (date === "friday") ? friRez : satRez;
-            const originalTableDBUpdate = (date === "friday") ? setFriRez : setSatRez;
-            const originalSeating = (time === "7:30" ? "1930-seating" : "2100-seating");
             const newTableDb = (changedReservation.date === "friday") ? friRez : satRez;
             const newTableDBUpdate = (changedReservation.date === "friday") ? setFriRez : setSatRez;
             const newSeating = (changedReservation.time === "7:30" ? "1930-seating" : "2100-seating");
             // update current table
-            fetch(`http://localhost:3001/${changedReservation.date}_tables/${table}`, {
+            fetch(`http://localhost:3001/${date}_tables/${table}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -75,7 +77,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
             })
         }
         // update reservation
-        fetch(`http://localhost:3001/reservations/${changedReservation.id}`, {
+        fetch(`http://localhost:3001/reservations/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -91,6 +93,30 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
 
     function clearFormContent() {
         setEditResForm(defaultResForm)
+    }
+
+    function deleteReservation() {
+        fetch(`http://localhost:3001/reservations/${id}`, {
+            method: "DELETE"
+        })
+        .then(() => {
+            fetch(`http://localhost:3001/${date}_tables/${table}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({[originalSeating]: true})
+            })
+            .then(resp => resp.json())
+            .then(revisedTable => {
+                originalTableDBUpdate(() => originalTableDB.map(table => {
+                    if(table.id === revisedTable.id) {
+                        return revisedTable
+                    } else return table
+                }))
+            });
+        })
+        handleReservationDelete(id);
     }
 
     const reservationChange = () => {
@@ -161,6 +187,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
                     <input type="submit" value="Change Reservation" />
                     <button onClick={clearFormContent}>Clear Changes</button>
                 </form>
+                    <button onClick={deleteReservation}>Delete Reservation</button>
             </>
         )
     }
