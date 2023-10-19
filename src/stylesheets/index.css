@@ -49,9 +49,11 @@ h2 {
   flex-direction: column;
   align-items: center;
   padding: 23%;
+  background-color: #000000;
   background-image: url("/src/data/sushi-background.gif");
   background-size: 100%;
   background-repeat: no-repeat;
+  margin: auto;
 }
 
 .home-link {
@@ -325,4 +327,7 @@ h2 {
   text-align: center;
   font-size: 55%;
   font-style: italic;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
  }
