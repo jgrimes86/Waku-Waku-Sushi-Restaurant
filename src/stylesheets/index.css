@@ -19,7 +19,8 @@ h2 {
 
 #header-image {
   max-width: 100%;
-  height: auto;
+  min-height: auto;
+  max-height: 200px;
 }
 
 /* menu */
@@ -165,7 +166,7 @@ h2 {
   padding-top: 5%;
 }
 
-.nav-link{
+.nav-link, .home-link {
   display: inline-block;
   box-sizing: border-box;
   width: 100px;
@@ -179,28 +180,20 @@ h2 {
   border-radius: 10px / 5px;
 }
 
-.home-link{
-  display: inline-block;
-  box-sizing: border-box;
-  width: 150px;
-  padding: 5px;
-  margin: 0 15px 15px;
-  background: black;
-  text-decoration: none;
-  text-align: center;
-  font-size: min(10vw, 18px) ;
-  color: pink;
-  border-radius: 10px / 5px;
+.nav-link:hover,
+.home-link:hover,
+.nav-link:focus,
+.home-link:focus,
+.active {
+  color: gold;
+  font-weight: bold;
 }
 
 .disabled {
   pointer-events: none;
+  opacity: 0.75;
 }
 
 .active {
-  color: gold
-}
-
-.disabled {
-  pointer-events: none;
+  text-decoration-line: underline;
 }
