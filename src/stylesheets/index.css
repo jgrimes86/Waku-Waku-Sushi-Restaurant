@@ -48,11 +48,11 @@ h2 {
 .nav-home {
   flex-direction: column;
   align-items: center;
-  padding: 23%;
-  background-color: #000000;
+  padding: 15% 0 25% 0;
   background-image: url("/src/data/sushi-background.gif");
   background-size: 100%;
   background-repeat: no-repeat;
+  background-color: #000000;
   margin: auto;
 }
 
@@ -157,6 +157,10 @@ h2 {
   margin: auto 10px;
 }
 
+.selected-time {
+  background-color: rgb(246, 154, 151, .75);
+}
+
 #form-input label[htmlFor="name"] {
   grid-column: 1 / 2;
   grid-row: 1 / 2;
@@ -179,7 +183,7 @@ h2 {
 
 #form-input {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: 1fr 1.5fr;
   grid-auto-rows: 1fr 1fr;
   justify-items: start;
 }
@@ -195,7 +199,7 @@ h2 {
 }
 
 .reservation button[type="submit"] {
-  margin: 20px auto 100px auto;
+  margin: 0 auto 40px auto;
   padding: 5px;
 }
 
@@ -337,4 +341,44 @@ h2 {
   position: fixed;
   bottom: 0;
   width: 100%;
- }
+}
+
+@media only screen and (max-width: 800px) {
+  #footer {
+    position: absolute;
+  }
+
+  .nav-home {
+    padding: 20% 0 50% 0;
+  }
+
+  .home-link {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 100px;
+    padding: 12px 7px;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, .80);
+    text-decoration: none;
+    text-align: center;
+    font-size: 80% ;
+    color: #f69a97;
+    border-radius: 10px / 5px;
+  }
+
+  
+  .nav-link:hover,
+  .home-link:hover,
+  .nav-link:focus,
+  .home-link:focus,
+  .active {
+    background: black;
+    color: #fee400;
+    font-weight: bold;
+    opacity: 100%;
+  }
+
+  .active {
+    text-decoration-line: underline;
+  }
+}
