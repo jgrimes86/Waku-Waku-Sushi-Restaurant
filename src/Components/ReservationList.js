@@ -2,9 +2,17 @@ import ReservationItem from "./ReservationItem"
 
 function ReservationList({reservations, clickOnReservation, selectedReservation}) {
 
-    const reservationList = reservations.map(res => {
+    const sortedAlphabetically = reservations.sort((res1, res2) => {
+        if (res1.name.toLowerCase() < res2.name.toLowerCase()) {
+            return -1
+        } else if (res1.name.toLowerCase() > res2.name.toLowerCase()) {
+            return 1
+        }
+    })
+
+    const reservationList = sortedAlphabetically.map(res => {
         return <ReservationItem key={res.id} res={res} clickOnReservation={clickOnReservation} selectedReservation={selectedReservation} />;
-})
+    })
 
     return (
         <div id="reservation-filter" >

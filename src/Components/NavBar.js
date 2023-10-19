@@ -4,7 +4,10 @@ function NavBar() {
 
     const location = useLocation();
     const navClass = (location.pathname === "/") ? "nav-bar nav-home" : "nav-bar";
-    const linkClass = (location.pathname === "/") ? "home-link": "nav-link";
+    const disabledClass = (location.pathname === "/staff") ? "disabled" : "";
+    const linkClass = (location.pathname === "/" ) ? `home-link ${disabledClass}`: `nav-link ${disabledClass}`;
+    const loginLinkClass = (location.pathname === "/") ? `home-link`: `nav-link`;
+
 
     return (
         <nav className={navClass}>
@@ -29,7 +32,7 @@ function NavBar() {
             </NavLink>
             <NavLink
                 to="/login"
-                className={linkClass}
+                className={loginLinkClass}
             >
                 Login
             </NavLink>
