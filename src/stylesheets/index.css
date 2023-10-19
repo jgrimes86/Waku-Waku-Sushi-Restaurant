@@ -85,6 +85,13 @@ h2 {
   opacity: 0.75;
 }
 
+.login-active {
+  text-decoration-line: underline;
+  color: #fee400;
+  font-weight: bold;
+  opacity: 100%;
+}
+
 .active {
   text-decoration-line: underline;
 }
