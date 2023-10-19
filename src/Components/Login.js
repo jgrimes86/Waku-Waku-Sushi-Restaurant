@@ -6,22 +6,30 @@ function Login() {
     const navigate = useNavigate(); 
     const { toggleLogin } = useOutletContext();
 
-    console.log("login", toggleLogin)
-
     const [password, setPassword] = useState("")
 
     function handleChange(event) {
         setPassword(event.target.value)
     }
+
+    console.log("password: ", password)
     
-    function onLogin() {
+    function onLogin(e) {
         if (password === "waku123") {
             toggleLogin();
             navigate("/staff");
             
             return console.log("Correct Password")
         } else {
+            e.preventDefault()
             return console.log("Try again")
+        }
+        setPassword("")
+    }
+
+    const onEnterPress = (e) => {
+        if(e.which === 13) {
+            onLogin(e)            
         }
     }
 
@@ -35,6 +43,7 @@ function Login() {
                         name="password"
                         placeholder="try waku123"
                         onChange={handleChange}
+                        onKeyPress={onEnterPress}
                         required
                     />
                 </form>

@@ -38,8 +38,7 @@ const router = createBrowserRouter([
                         path: "/reservation-success",
                         element: <ReservationComplete />     
                     },
-                    {
-                                       
+                    {     
                         path: "/contact",
                         element: <ContactUs />
                     }
