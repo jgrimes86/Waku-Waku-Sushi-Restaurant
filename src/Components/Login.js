@@ -11,8 +11,6 @@ function Login() {
     function handleChange(event) {
         setPassword(event.target.value)
     }
-
-    console.log("password: ", password)
     
     function onLogin(e) {
         if (password === "waku123") {

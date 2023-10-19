@@ -29,11 +29,15 @@ function ReservationForm() {
     const [is1930Open, setIs1930Open] = useState(false)
     const [is2100Open, setIs2100Open] = useState(false)
     const [filteredSlots, setFilteredSlots] = useState({})
+    const [isSelected, setIsSelected] = useState("")
+
+    const classFor730 = (isSelected === "7:30") ? "selected-time" : "";
+    const classFor900 = (isSelected === "9:00") ? "selected-time" : "";
 
     let btn1930 = is1930Open ? 
-        <button onClick={handleChange} type="button" name="time" value="7:30">7:30PM</button> : null
+        <button onClick={handleChange} type="button" name="time" value="7:30" className={classFor730}>7:30PM</button> : null
     let btn2100 = is2100Open  ? 
-        <button onClick={handleChange} type="button" name="time" value="9:00">9:00PM</button> : null
+        <button onClick={handleChange} type="button" name="time" value="9:00" className={classFor900}>9:00PM</button> : null
 
     function handleChange(event) {
         setRezFormData(currentData => {
@@ -44,6 +48,7 @@ function ReservationForm() {
         })
         setIs1930Open(false)
         setIs2100Open(false)
+        setIsSelected(event.target.value)
     }
 
     function handleSubmit(event) {
@@ -57,9 +62,6 @@ function ReservationForm() {
         })
 
         const tableId = tableOpen.id
-
-        console.log("Tableopen", tableOpen)
-        console.log("Table: ", tableId)
 
         // update (patch) rez-table to false
         fetch(`http://localhost:3001/${rezFormData.date}_tables/${tableId}`, {
@@ -105,7 +107,6 @@ function ReservationForm() {
             .then(rez => {
                 onNewRez(rez)
                 setRezFormData(initialState)
-                console.log("post", rez)
                 setActiveRez(rez)
             })
         setRezFormData(initialState)
@@ -127,7 +128,7 @@ function ReservationForm() {
                 return res
             } 
             else {
-                console.log(`table ${res.id} is booked for the day`)
+                // console.log(`table ${res.id} is booked for the day`)
             }
         })
         setFilteredSlots(filtered)
@@ -183,11 +184,11 @@ function ReservationForm() {
                 <div id="form-input">
                     {/* name */}
                     <label htmlFor="name">Name  </label>
-                    <input type="text" name="name" value={name} onChange={handleChange} required/>
+                    <input type="text" name="name" value={name} onChange={handleChange} />
 
                     {/* phone number */}
                     <label htmlFor="phoneNumber">Phone Number  </label>
-                    <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} require />
+                    <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} />
                 </div>
 
                 <div id="form-btns">
