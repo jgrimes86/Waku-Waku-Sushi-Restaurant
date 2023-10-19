@@ -95,11 +95,18 @@ h2 {
 
 #reservation-list {
   list-style-type: none;
+  max-height: 500px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
 }
 
 #reservation-list li {
   padding: 5px;
   border: 1px black solid;
+}
+
+.selected-res {
+  background-color: lightgray;
 }
 
 #res-edit {
@@ -134,7 +141,7 @@ h2 {
 }
 
 .reserved-table {
-  background-color: grey;
+  background-color: lightgray;
 }
 
 .selected-table {
@@ -179,6 +186,10 @@ h2 {
   font-size: min(10vw, 18px) ;
   color: pink;
   border-radius: 10px / 5px;
+}
+
+.disabled {
+  pointer-events: none;
 }
 
 .active {
