@@ -128,12 +128,67 @@ h2 {
   margin: 0 20%;
 }
 
+#form-select {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#form-select select {
+  padding: 5px;
+}
+
+#form-select select[name="date"] {
+  margin-right: 30px;
+}
+
+#form-select label {
+  margin: auto 10px;
+}
+
+#form-input label[htmlFor="name"] {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+#form-input input[name="name"] {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+
+#form-input label[htmlFor="phoneNumber"] {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+#form-input input[name="phoneNumber"] {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+#form-input {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-auto-rows: 1fr 1fr;
+  justify-items: start;
+}
+
+#form-input label {
+  justify-self: end;
+  margin: auto 10px;
+}
+
+#form-input input {
+  padding: 5px;
+  margin: 10px;
+}
+
 .reservation button[type="submit"] {
   background-color: pink;
 }
 
 /* Contact Us */
-
 .contact div {
   text-align: center;
   padding-bottom: 15px;

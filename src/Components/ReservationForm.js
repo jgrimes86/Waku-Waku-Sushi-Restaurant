@@ -182,12 +182,16 @@ function ReservationForm() {
                 
                 <div id="form-input">
                     {/* name */}
-                    <label htmlFor="name">Name  </label>
-                    <input type="text" name="name" value={name} onChange={handleChange} required/>
-
+                    {/* <div id="form-name"> */}
+                        <label htmlFor="name">Name  </label>
+                        <input type="text" name="name" value={name} onChange={handleChange} required/>
+                    {/* </div> */}
+                    
                     {/* phone number */}
-                    <label htmlFor="phoneNumber">Phone Number  </label>
-                    <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} require />
+                    {/* <div id="form-phone"> */}
+                        <label htmlFor="phoneNumber">Phone Number  </label>
+                        <input type="tel" name="phoneNumber" placeholder="(xxx) - xxx - xxxx" maxLength="10" value={phoneNumber} onChange={handleChange} require />
+                    {/* </div> */}
                 </div>
 
                 <div id="form-btns">
