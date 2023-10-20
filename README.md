@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Waku Waku
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Welcome to the Waku Waku Sushi Restaurant!
 
-In the project directory, you can run:
+This app includes responsive home, menu, reservation, login, and contact us pages. Users can view the menu of a mock restaurant, make reservations, and login. Login currently only supports administer-view, showing an overview of current reservations and which tables are filled. Users can then modify reservations, changing guest information, reservation time, and table assignment.
 
-### `npm start`
+Waku Waku Sushi Restaurant is a phase 2 project for Flatiron School's software engineering course. This project uses React and React Router to create a single-page application with client-side routing. A JSON server is used to store application data locally.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This application was created by [Ling Zhou Chen](https://github.com/lingzhouc) and [Jim Grimes](http://github.com/jgrimes86).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instructions
 
-### `npm test`
+If you would like to use this application, fork and clone the repository to your computer. Once you’ve opened the code, run the following commands to get everything up and running!
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installations
 
-### `npm run build`
+1. Install React components
+```
+npm install
+```
+2. Install React router
+```
+npm install react-router-dom@6
+```
+3. Install JSON server
+```
+npm install -g json-server
+```
+4. Install React icons
+```
+npm install react-icons --save
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Running the app
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Start json server
+```
+npm run server
+```
+2. Start the application
+```
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Acknowledgements
 
-### `npm run eject`
+Images and gifs used in this application were sourced from:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+[Cooking Panda](https://cookingpanda.com/blogs/food-news/these-18-mesmerizing-sushi-gifs-are-making-us-hungry)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[The Wooden Skillet](https://thewoodenskillet.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+[Sushi Sushi](https://www.sushisushi.co.uk/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Sushi Hana](https://sushihanatulsa.com/)
