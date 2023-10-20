@@ -36,7 +36,6 @@ h2 {
   font-size: 80%;
   padding: 10px 6px;
   margin-top: 8px;
-
   background: black;
   text-decoration: none;
   text-align: center;
@@ -129,33 +128,39 @@ h2 {
 }
 
 /* Reservations Form */
-.reservation, .reservation-form {
-  text-align: center;
-  margin: 0;
+.reservation {
+  min-height: 75vh;
 }
 
 .reservation-form {
-  margin: 0 20%;
+  margin: 0 5%;
   border-style: groove;
+}
+
+.reservation, .reservation-form {
+  text-align: center;
 }
 
 #form-select {
   display: flex;
   justify-content: center;
   text-align: center;
-  margin: 20px 0;
+  margin: 30px 0 20px 0;
 }
 
 #form-select select {
-  padding: 5px;
-}
-
-#form-select select[name="date"] {
-  margin-right: 30px;
+  padding: 3px;
+  font-size: 80%;
 }
 
 #form-select label {
-  margin: auto 10px;
+  margin: auto 5px auto 0;
+  font-size: 80%;
+}
+
+#form-select select[name="date"] {
+  padding: 5px;
+  margin: auto 5% auto 0;
 }
 
 .selected-time {
@@ -192,16 +197,13 @@ h2 {
 #form-input label {
   justify-self: end;
   margin: auto 10px;
+  font-size: 80%;
 }
 
 #form-input input {
-  padding: 5px;
+  padding: 3px;
   margin: 8px;
-}
-
-.reservation button[type="submit"] {
-  margin: 0 auto 40px auto;
-  padding: 5px;
+  font-size: 80%;
 }
 
 #form-btns {
@@ -211,7 +213,14 @@ h2 {
 .reservation button[type="button"] {
   margin: 0 10px;
   padding: 5px;
+  font-size: 80%;
 }
+
+.reservation button[type="submit"] {
+  margin: 0 auto 60px auto;
+  padding: 5px;
+}
+
 
 /* Reservation Success */
 #res-success {
@@ -382,14 +391,71 @@ h2 {
     margin: 8px 15px;
     font-size: 100%;
   }
-}
 
+  .reservation-form {
+    max-width: 840px;
+    margin: auto;
+  }
+
+  #form-select select,
+  #form-select label,
+  #form-input label,
+  #form-input input,
+  .reservation button[type="submit"],
+  .reservation button[type="button"] {
+    font-size: 90%;
+  }
+
+  #form-select select,
+  #form-input input {
+    padding: 5px;
+  }
+  
+  #form-select label,
+  #form-input label {
+    margin: auto 10px auto 0;
+  }
+
+  #form-input input {
+    width: 250px;
+  }
+  
+  .reservation button[type="submit"] {
+    margin: 0 auto 50px auto;
+  }
+}
 
 @media (min-width: 1150px) {
   .nav-home {
     padding: 15% 50%;
     background-size: 1300px;
     background-repeat: repeat-x;
+  }
+
+  #form-select label,
+  #form-select select,
+  #form-input label,
+  #form-input input,
+  .reservation button[type="button"],
+  .reservation button[type="submit"] {
+    font-size: 100%;
+  }
+
+  #form-select select,
+  #form-input input {
+    padding: 8px;
+  }
+
+  #form-input input {
+    width: 300px;
+  }
+
+  #form-btns {
+    margin-bottom: 25px;
+  }
+
+  .reservation button[type="submit"] {
+    margin: 5px auto 90px auto;
   }
   
 }
