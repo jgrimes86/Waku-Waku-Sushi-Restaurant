@@ -33,9 +33,10 @@ function Login() {
     }
 
     return (
-        <>
+        <div className="login">
             <h2>Login</h2>
-            <div className="login">
+            <div className="login-form">
+                <p>Enter your password:</p>
                 <form >
                     <input 
                         type="password"
@@ -48,7 +49,7 @@ function Login() {
                 </form>
                 <button onClick={onLogin} type="submit">Submit</button>
             </div>
-        </>
+        </div>
     )
 }
 
