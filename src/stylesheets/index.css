@@ -299,7 +299,9 @@ h2 {
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: flex-start;
-  margin-bottom: 50px;
+  margin-bottom: 75px;
+  border-style: groove; 
+  min-height: 75vh;
 }
 
 .table-form {
@@ -309,22 +311,22 @@ h2 {
 }
 
 /* Reservation List */
+
 #reservation-filter {
   flex: 40%;
-  padding: 10px;
-  /* margin-bottom: 50px; */
+  padding: 10px 10px 10px 20px;
 }
 
 #reservation-filter div > label, h4, ul {
     padding: 10px;
-  }
+}
 
 #reservation-list {
   list-style-type: none;
   max-height: 500px;
   overflow-y: scroll;
   scrollbar-width: thin;
-  margin-bottom: 75px;
+  border-style: groove;
 }
 
 #reservation-list li {
@@ -373,6 +375,14 @@ h2 {
 
 .selected-table {
   background-color: #fee400;
+}
+
+.table-form label {
+  margin: 8px;
+}
+
+.table-form select {
+  padding: 5px;
 }
 
 /* Footer */
