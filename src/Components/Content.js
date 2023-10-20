@@ -1,3 +1,4 @@
+import Footer from "./Footer";
 import { Outlet, useOutletContext } from "react-router-dom";
 
 function Content() {
@@ -5,9 +6,12 @@ function Content() {
     const context = useOutletContext();
 
     return (
-        <div>
+
+        <div className="layout">
             <Outlet context={{...context}} />
+            <Footer />
         </div>
+
     )
 }
 
