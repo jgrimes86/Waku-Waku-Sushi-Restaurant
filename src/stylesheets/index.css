@@ -224,13 +224,23 @@ h2 {
 
 /* Reservation Success */
 #res-success {
+  min-height: 75vh;
   text-align: center;
-  border-style: groove;
-  margin: 0 20% 30% 20%;
 }
 
-#res-success p {
-  margin: 10px;
+#res-info {
+  margin: 0 5%;
+  padding: 30px 30px 60px 30px;
+  border-style: groove;
+}
+
+#res-name {
+  padding-bottom: 30px;
+}
+
+#res-info p {
+  margin-bottom: 12px;
+  font-size: 80%;
 }
 
 /* Login */
@@ -311,7 +321,6 @@ h2 {
 }
 
 /* Reservation List */
-
 #reservation-filter {
   flex: 40%;
   padding: 10px 10px 10px 20px;
@@ -426,7 +435,10 @@ h2 {
     font-size: 100%;
   }
 
-  .reservation-form, .login-form, .contact-info{
+  .reservation-form,
+  .login-form,
+  .contact-info, 
+  #res-info {
     max-width: 840px;
     margin: auto;
   }
@@ -440,7 +452,8 @@ h2 {
   .login-form p,
   .login-form input,
   .login-form button,
-  .contact-info p {
+  .contact-info p,
+  #res-info p {
     font-size: 90%;
   }
     
@@ -480,7 +493,8 @@ h2 {
   .login-form p,
   .login-form input,
   .login-form button,
-  .contact-info p {
+  .contact-info p,
+  #res-info p {
     font-size: 100%;
   }
 

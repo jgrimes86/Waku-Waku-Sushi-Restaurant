@@ -54,7 +54,7 @@
       "id": 1,
       "seats": 2,
       "1930-seating": true,
-      "2100-seating": true
+      "2100-seating": false
     },
     {
       "id": 2,
@@ -224,6 +224,15 @@
       "time": "",
       "table": 1,
       "id": 11
+    },
+    {
+      "name": "Toby",
+      "phoneNumber": "7089539013",
+      "guests": "1",
+      "date": "Friday",
+      "time": "9:00",
+      "table": 1,
+      "id": 12
     }
   ]
 }
