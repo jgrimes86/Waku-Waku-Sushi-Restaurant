@@ -8,7 +8,7 @@ function Menu() {
     
     // fetch menu data
     useEffect(() => {
-    fetch("http://localhost:3001/menu")
+    fetch(process.env.REACT_APP_API_URL+"/menu")
         .then((resp) => resp.json())
         .then(items => setMenuItems(items))
     }, []);

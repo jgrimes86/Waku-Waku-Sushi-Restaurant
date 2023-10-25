@@ -10,6 +10,9 @@ const initialState = {
     table: ""
 }
 
+const databaseURL = process.env.REACT_APP_API_URL
+
+
 function ReservationForm() {
 
     const {
@@ -64,7 +67,7 @@ function ReservationForm() {
         const tableId = tableOpen.id
 
         // update (patch) rez-table to false
-        fetch(`http://localhost:3001/${rezFormData.date}_tables/${tableId}`, {
+        fetch(`${databaseURL}/${rezFormData.date}_tables/${tableId}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json"
@@ -87,7 +90,7 @@ function ReservationForm() {
             })
         
         // add new res to db
-        fetch("http://localhost:3001/reservations", {
+        fetch(`${databaseURL}/reservations`, {
             method: "POST", 
             headers: {
                 "Content-Type": "application/json"

@@ -3,9 +3,11 @@ import NavBar from "./Components/NavBar";
 import { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom"
 
-const databaseURL = "http://localhost:3001"
+const databaseURL = process.env.REACT_APP_API_URL
 
 function App() {
+
+    // console.log(process.env.REACT_APP_API_URL)
 
     const [reservations, setReservations] = useState([]);
     const [friRez, setFriRez] = useState([])

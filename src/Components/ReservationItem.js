@@ -12,6 +12,8 @@ const defaultResForm = {
     time: "",
 }
 
+const databaseURL = process.env.REACT_APP_API_URL
+
 function ReservationItem({res, clickOnReservation, selectedReservation}) {
     const {id, name, phoneNumber, date, time, guests, table} = res;
     const [editResForm, setEditResForm] = useState(defaultResForm)
@@ -47,7 +49,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
             const newTableDBUpdate = (changedReservation.date === "Friday") ? setFriRez : setSatRez;
             const newSeating = (changedReservation.time === "7:30" ? "1930-seating" : "2100-seating");
             // update current table
-            fetch(`http://localhost:3001/${date}_tables/${table}`, {
+            fetch(`${databaseURL}/${date}_tables/${table}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
@@ -62,7 +64,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
                     } else return table
                 }));
                 // update new table
-                fetch(`http://localhost:3001/${changedReservation.date}_tables/${changedReservation.table}`, {
+                fetch(`${databaseURL}/${changedReservation.date}_tables/${changedReservation.table}`, {
                     method: "PATCH",
                     headers: {
                         "Content-Type": "application/json"
@@ -78,7 +80,7 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
             })
         }
         // update reservation
-        fetch(`http://localhost:3001/reservations/${id}`, {
+        fetch(`${databaseURL}/reservations/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
@@ -97,11 +99,11 @@ function ReservationItem({res, clickOnReservation, selectedReservation}) {
     }
 
     function deleteReservation() {
-        fetch(`http://localhost:3001/reservations/${id}`, {
+        fetch(`${databaseURL}/reservations/${id}`, {
             method: "DELETE"
         })
         .then(() => {
-            fetch(`http://localhost:3001/${date}_tables/${table}`, {
+            fetch(`${databaseURL}/${date}_tables/${table}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json"
