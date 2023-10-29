@@ -3,7 +3,7 @@ const cors = require("cors");
 const path = require("path");
 const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
-const middlewares = jsonServer.defaults({'noCors': true});
+const middlewares = jsonServer.defaults({noCors: true});
 
 server.use(cors({ origin: 'https://waku-waku-sushi.netlify.app'}));
 server.use(jsonServer.bodyParser);
