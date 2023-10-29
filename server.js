@@ -5,10 +5,16 @@ const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
 const middlewares = jsonServer.defaults({noCors: true});
 
-server.use(cors({ origin: 'https://waku-waku-sushi.netlify.app'}));
+server.use(cors());
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
 server.use(router);
+
+server.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://waku-waku-sushi.netlify.app')
+  res.header('Access-Control-Allow-Headers', '*')
+  next()
+})
 
 const PORT = process.env.PORT || 3001;
 
