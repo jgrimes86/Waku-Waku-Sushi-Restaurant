@@ -5,7 +5,7 @@ const server = jsonServer.create();
 const router = jsonServer.router(path.join(__dirname, "db", "db.json"));
 const middlewares = jsonServer.defaults();
 
-server.use(cors({ origin: '*'}));
+server.use(cors({ origin: 'https://waku-waku-sushi.netlify.app'}));
 server.use(jsonServer.bodyParser);
 server.use(middlewares);
 server.use(router);
